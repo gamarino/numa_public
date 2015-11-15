@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <menuitem name="Exceptions" parent="base.menu_custom" id="exceptions_submenu"/>
+
+        <record id="exceptions_form_view" model="ir.ui.view">
+            <field name="name">Exceptions form</field>
+            <field name="model">base.general_exception</field>
+            <field name="arch" type="xml">
+                <form string="Exception" version="7.0">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_right oe_button_box" name="buttons">
+                            <div>
+                                <button name="action_frames"   string="Frames" type="object" />
+                            </div>
+                        </div>
+
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" />
+                            </h1>
+                        </div>
+                        <group string="General">
+                            <field name="service"/>
+                            <field name="exception"/>
+                            <field name="request"/>
+                            <field name="timestamp"/>
+                            <field name="do_not_purge"/>
+                            <field name="user"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="exceptions_list_view" model="ir.ui.view">
+            <field name="name">Exceptions list</field>
+            <field name="model">base.general_exception</field>
+            <field name="arch" type="xml">
+                <tree string="Exception" create="0">
+                    <field name="user" select="True"/>
+                    <field name="name" select="True" />
+                    <field name="timestamp" select="True" />
+                    <field name="service" select="True" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="exceptions_search_view" model="ir.ui.view">
+            <field name="name">Exceptions search</field>
+            <field name="model">base.general_exception</field>
+            <field name="arch" type="xml">
+                <search string="Exceptions" >
+                    <filter icon="terp-document-new"
+                        string="Do not purge"
+                        domain="[('do_not_purge','=',True)]"/>
+                    <separator orientation="vertical"/>
+                    <field name="name"/>
+                    <field name="user" />
+                    <field name="timestamp" />
+                    <field name="service" />
+                </search>
+            </field>
+        </record>
+
+        <record id="exceptions_action" model="ir.actions.act_window">
+            <field name="name">Exceptions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">base.general_exception</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="exceptions_list_view"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                  Exceptions recorded. 
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="exceptions_menu"
+            action="exceptions_action"
+            parent="exceptions_submenu" 
+            sequence="10"/>
+            
+        <record id="exc_frame_form_view" model="ir.ui.view">
+            <field name="name">Exception frames form</field>
+            <field name="model">base.frame</field>
+            <field name="arch" type="xml">
+                <form string="Frame" version="7.0">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="file_name" class="oe_edit_only"/>
+                            <h2>
+                                <field name="file_name" width="500"/>
+                            </h2>
+                        </div>
+                        <group string="General">
+                            <field name="gexception" invisible="True" />
+                            <field name="line_number"/>
+                            <field name="src_code" />
+                            <field name="locals" readonly="True">
+                                <tree string="Locals">
+                                    <field name="sequence" invisible="True"/>
+                                    <field name="name"/>
+                                    <field name="value"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="exc_frame_list_view" model="ir.ui.view">
+            <field name="name">Exceptions frames list</field>
+            <field name="model">base.frame</field>
+            <field name="arch" type="xml">
+                <tree string="Frames" create="0">
+                    <field name="gexception" select="True"/>
+                    <field name="file_name" select="True" />
+                    <field name="line_number" select="True" />
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>

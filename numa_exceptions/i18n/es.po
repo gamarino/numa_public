@@ -1,0 +1,166 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* numa_exceptions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 8.beta1rc\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-06 01:20+0000\n"
+"PO-Revision-Date: 2014-06-06 01:20+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: numa_exceptions
+#: model:ir.actions.act_window,help:numa_exceptions.exceptions_action
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                  Exceptions recorded. \n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                  Exceptions recorded. \n"
+"              </p>\n"
+"            "
+
+#. module: numa_exceptions
+#: view:base.general_exception:0
+msgid "Do not purge"
+msgstr "No borrar"
+
+#. module: numa_exceptions
+#: field:base.general_exception,do_not_purge:0
+msgid "Do not purge?"
+msgstr "No borrar?"
+
+#. module: numa_exceptions
+#: code:addons/numa_exceptions/exceptions.py:198
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: numa_exceptions
+#: field:base.frame,gexception:0
+#: view:base.general_exception:0
+#: field:base.general_exception,exception:0
+msgid "Exception"
+msgstr "Excepción"
+
+#. module: numa_exceptions
+#: view:base.general_exception:0
+#: model:ir.actions.act_window,name:numa_exceptions.exceptions_action
+#: model:ir.ui.menu,name:numa_exceptions.exceptions_menu
+#: model:ir.ui.menu,name:numa_exceptions.exceptions_submenu
+msgid "Exceptions"
+msgstr "Exceptions"
+
+#. module: numa_exceptions
+#: field:base.frame,file_name:0
+msgid "File name"
+msgstr "File name"
+
+#. module: numa_exceptions
+#: view:base.frame:0
+#: field:base.variable_value,frame:0
+msgid "Frame"
+msgstr "Frame"
+
+#. module: numa_exceptions
+#: code:addons/numa_exceptions/exceptions.py:107
+#: view:base.frame:0
+#: view:base.general_exception:0
+#: field:base.general_exception,frames:0
+#, python-format
+msgid "Frames"
+msgstr "Frames"
+
+#. module: numa_exceptions
+#: view:base.frame:0
+#: view:base.general_exception:0
+msgid "General"
+msgstr "General"
+
+#. module: numa_exceptions
+#: field:base.general_exception,name:0
+msgid "ID"
+msgstr "ID"
+
+#. module: numa_exceptions
+#: field:base.frame,line_number:0
+msgid "Line number"
+msgstr "Número de linea"
+
+#. module: numa_exceptions
+#: field:base.frame,locals:0
+msgid "Local variables"
+msgstr "Variables locales"
+
+#. module: numa_exceptions
+#: view:base.frame:0
+msgid "Locals"
+msgstr "Locales"
+
+#. module: numa_exceptions
+#: field:base.variable_value,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: numa_exceptions
+#: code:addons/numa_exceptions/exceptions.py:199
+#, python-format
+msgid "Please contact your system administrator, exception ID [%s]"
+msgstr "Por favor contacte con su administrador de sistema, ID excepción [%s]"
+
+#. module: numa_exceptions
+#: field:base.general_exception,request:0
+msgid "Request"
+msgstr "Pedido"
+
+#. module: numa_exceptions
+#: field:base.variable_value,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: numa_exceptions
+#: field:base.general_exception,service:0
+msgid "Service"
+msgstr "Servicio"
+
+#. module: numa_exceptions
+#: field:base.frame,src_code:0
+msgid "Source code"
+msgstr "Código fuente"
+
+#. module: numa_exceptions
+#: field:base.general_exception,timestamp:0
+msgid "Timestamp"
+msgstr "Timestamp"
+
+#. module: numa_exceptions
+#: field:base.general_exception,user:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: numa_exceptions
+#: field:base.variable_value,value:0
+msgid "Value"
+msgstr "Valor"
+
+#. module: numa_exceptions
+#: model:ir.model,name:numa_exceptions.model_base_frame
+msgid "base.frame"
+msgstr "base.frame"
+
+#. module: numa_exceptions
+#: model:ir.model,name:numa_exceptions.model_base_general_exception
+msgid "base.general_exception"
+msgstr "base.general_exception"
+
+#. module: numa_exceptions
+#: model:ir.model,name:numa_exceptions.model_base_variable_value
+msgid "base.variable_value"
+msgstr "base.variable_value"
+

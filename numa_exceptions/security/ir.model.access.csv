@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_exceptions","base.general_exception","model_base_general_exception",,1,1,1,1
+"access_frames","base.frame","model_base_frame",,1,1,1,1
+"access_values","base.variable_value","model_base_variable_value",,1,1,1,1
