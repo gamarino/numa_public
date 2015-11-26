@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="report_serviceorder_document">
+    <t t-call="report.external_layout">
+        <t t-set="doc" t-value="doc.with_context({'lang':doc.customer.lang})" />
+        <div class="page">
+            <div class="oe_structure"/>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div t-field="doc.state" />
+                </div>
+            </div>
+
+            <h2>
+                <span >Service Order # </span>
+                <span t-field="doc.name"/>
+            </h2>
+
+            <div class="row mt32 mb32" id="informations">
+                <div t-if="doc.customer" class="col-xs-3">
+                    <strong>Customer:</strong>
+                    <p t-field="doc.customer"/>
+                </div>
+                <div t-if="doc.planned_date" class="col-xs-3">
+                    <strong >Date Planned:</strong>
+                    <p t-field="doc.planned_date"/>
+                </div>
+                <div t-if="doc.start_date" class="col-xs-3">
+                    <strong >Date started:</strong>
+                    <p t-field="doc.start_date"/>
+                </div>
+                <div t-if="doc.assigned_to and doc.assigned_to.name" class="col-xs-3">
+                    <strong>Assigned to:</strong>
+                    <p t-field="doc.assigned_to"/>
+                </div>
+            </div>
+
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th class="text-left">Service</th>
+                        <th class="text-left">UoM</th>
+                        <th class="text-right">Requested Qty</th>
+                        <th class="text-right">Delivered Qty</th>
+                    </tr>
+               </thead>
+               <tbody class="sale_tbody">
+                    <t t-foreach="doc.lines" t-as="l">
+                        <tr>
+                            <td class="text-left" >
+                               <span class="text-left" t-field="l.product.name"/>
+                            </td>
+                            <td class="text-left" >
+                               <span t-field="l.product_uom.name"/>
+                            </td>
+                            <td class="text-right" >
+                               <span t-field="l.requested_qty"/>
+                            </td>
+                            <td class="text-right" >
+                               <span t-field="l.delivered_qty"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+
+            <div t-if="doc.notes" >
+                <strong >Notes:</strong>
+                <p t-field="doc.notes" />
+            </div>
+
+            <div class="oe_structure"/>
+        </div>
+    </t>
+</template>
+
+
+<template id="report_serviceorder">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="numa_services.report_serviceorder_document" t-lang="doc.customer.lang"/>
+        </t>
+    </t>
+</template>
+</data>
+</openerp>

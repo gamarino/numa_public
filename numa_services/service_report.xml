@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report 
+            id="report_service_order"
+            string="Service Order"
+            model="service.order" 
+            report_type="qweb-pdf"
+            file="numa_services.report_serviceorder" 
+            name="numa_services.report_serviceorder" 
+        />
+    </data>
+</openerp>
