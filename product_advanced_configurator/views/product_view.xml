@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="variants_extend_form_view">
+            <field name="name">product.template.variants.extended</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view" />
+            <field name="arch" type="xml">
+                <field name="attribute_id" position="after">
+                    <field name="required" />
+                    <field name="attr_type" />
+                    <field name="default" />
+                </field>
+                <xpath expr="//page[@name='variants']//button[@string='Variant Prices']"
+                       position="before">
+                    <button class="oe_inline oe_stat_button" 
+                            string="New variant"  
+                            name="action_create_variant" 
+                            type="object" 
+                            icon="fa-plus"/>
+                </xpath>
+                <xpath expr="//notebook"
+                       position="inside">
+                    <page string="Conf.Events" >
+                        <group name="events">
+                            <field name="vc_message" widget="html"/>
+                            <field name="on_configuration" />
+                            <field name="on_change" />
+                            <field name="on_variant_creation" />
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//page[@name='variants']//button[@string='Variant Prices']"
+                       position="before">
+                    <button class="oe_inline oe_stat_button" 
+                            string="Generate All"  
+                            name="create_variant_ids" 
+                            type="object" 
+                            icon="fa-th-list"/>
+                </xpath>
+                <xpath expr="//page[@name='variants']/field[@name='attribute_line_ids']" 
+                       position="before">
+                    <group name="attributes">
+                        <field name="parents" 
+                               widget="many2many_tags"
+                               options="{'no_create_edit': True}" />
+                        <field name="parent_domain" invisible="True" />
+                        <field name="own_attribute_lines" invisible="True"
+                               context="{'show_attribute': False, 'default_product_tmpl_id': id}">
+                            <tree string="Variants" editable="bottom">
+                                <field name="product_tmpl_id" invisible="True"/>
+                                <field name="attribute_id" />
+                                <field name="value_ids" 
+                                       widget="many2many_tags" 
+                                       options="{'no_create_edit': True}" 
+                                       domain="[('attribute_id', '=', attribute_id)]" 
+                                       context="{'default_attribute_id': attribute_id}"/>
+                            </tree>
+                        </field>
+                    </group>
+                </xpath>
+                <xpath expr="//page[@name='variants']/field[@name='attribute_line_ids']" 
+                       position="replace">
+                    <field name="attribute_line_ids" 
+                           widget="one2many_list" 
+                           context="{'show_attribute': False}">
+                        <tree string="Options">
+                            <field name="sequence" widget="handle" />
+                            <field name="attribute_id"/>
+                            <field name="value_ids" widget="many2many_tags" options="{'no_create_edit': True}" domain="[('attribute_id', '=', attribute_id)]" context="{'default_attribute_id': attribute_id}"/>
+                            <field name="required" />
+                            <field name="default" 
+                                   domain="[('attribute_id', '=', attribute_id)]" 
+                                   context="{'default_attribute_id': attribute_id}"/>
+                            <field name="price_extra" />
+                        </tree>
+                        <form string="Variant">
+                            <group >
+                                <field name="attribute_id"/>
+                                <field name="value_ids" 
+                                       options="{'no_create_edit': True}" 
+                                       domain="[('attribute_id', '=', attribute_id)]" 
+                                       context="{'default_attribute_id': attribute_id}"/>
+                                <field name="required" />
+                                <field name="default" 
+                                       domain="[('attribute_id', '=', attribute_id)]" 
+                                       context="{'default_attribute_id': attribute_id}"/>
+                                <field name="price_extra" />
+                                <field name="on_change" />
+                            </group>
+                        </form>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view"
+            id="product_attribute_extended_tree_view">
+            <field name="name">product.attribute.extended.tree</field>
+            <field name="model">product.attribute</field>
+            <field name="inherit_id" ref="product.attribute_tree_view" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="attr_type" />
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view"
+            id="product_attribute_extended_form_view">
+            <field name="name">product.attribute.extended.form</field>
+            <field name="model">product.attribute</field>
+            <field name="inherit_id" ref="product.attribute_form_view" />
+            <field name="arch" type="xml">
+                <data>
+                    <field name="name" position="after">
+                        <field name="attr_type" />
+                    </field>
+                    <field name="value_ids" position="after">
+                        <field name="min_range" 
+                               attrs="{'invisible': [('attr_type','not in',['range'])], 'required': [('attr_type','in',['range'])]}"/>
+                        <field name="max_range" 
+                               attrs="{'invisible': [('attr_type','not in',['range'])], 'required': [('attr_type','in',['range'])]}"/>
+                        <field name="description" widget="html"/>
+                        <field name="on_change" />
+                        <field name="image" />
+                    </field>
+                    <field name="value_ids" position="attributes">
+                        <attribute name="attrs">{'invisible': [('attr_type','!=','select')], 'required': [('attr_type','in',['select'])]}</attribute>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view"
+            id="product.variants_tree_view">
+            <field name="name">product.attribute.value.extended.tree</field>
+            <field name="model">product.attribute.value</field>
+            <field name="arch" type="xml">
+                <tree string="Variant Values">
+                    <field name="sequence" widget="handle"/>
+                    <field name="attribute_id"/>
+                    <field name="name"/>
+                    <field name="attr_type"/>
+                    <field name="display_value"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view"
+            id="product_attribute_value_extended_form_view">
+            <field name="name">product.attribute.value.extended.form</field>
+            <field name="model">product.attribute.value</field>
+            <field name="arch" type="xml">
+                <form string="Attribute value" >
+                    <h1>
+                        <field name="attribute_id" readonly="1"/>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                    <field name="display_value" invisible="1"/>
+                    <field name="attr_type" invisible="1"/>     
+                    <field name="string_value"
+                           attrs="{'invisible': [('attr_type','!=','string')], 'required': [('attr_type','in',['string'])]}" />
+                    <field name="numeric_value" 
+                           attrs="{'invisible': [('attr_type','not in',['numeric','range'])]}"/>
+                    <field name="product" 
+                           attrs="{'invisible': [('attr_type','not in',['product'])], 'required': [('attr_type','in',['product'])]}"/>
+                    <field name="variant" 
+                           attrs="{'invisible': [('attr_type','not in',['variant'])], 'required': [('attr_type','in',['variant'])]}"/>
+                    <field name="category" 
+                           attrs="{'invisible': [('attr_type','not in',['category'])], 'required': [('attr_type','in',['category'])]}"/>
+                    <field name="description" widget="html" />
+                    <field name="image" widget="image"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_attribute_value_search_view">
+            <field name="name">product.attribute.value.search</field>
+            <field name="model">product.attribute.value</field>
+            <field name="arch" type="xml">
+                <search string="Variant Values">
+                    <field name="attribute_id"/>
+                    <field name="attr_type" />
+                    <field name="name"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Attribute" domain="" context="{'group_by':'attribute_id'}"/>
+                        <filter string="Attribute Type" domain="" context="{'group_by':'attr_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_configurator_tree_view">
+            <field name="name">product.configurator.option.tree</field>
+            <field name="model">product.configurator.option</field>
+            <field name="arch" type="xml">
+                <tree string="Variant options" create="0" delete="0">
+                    <field name="attribute" readonly="1"/>
+                    <field name="attr_type" invisible="1"/>     
+                    <field name="display_value" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_configurator_option_form_view">
+            <field name="name">product.configurator.option.form</field>
+            <field name="model">product.configurator.option</field>
+            <field name="arch" type="xml">
+                <form string="Variant configurator">
+                    <h1>
+                        <field name="attribute" readonly="1"/>
+                    </h1>
+                    <field name="attribute_image"
+                           widget="image"
+                           readonly="1"
+                           attrs="{'invisible': [('attribute_image','=',False)]}" />
+                    <group name="Options">
+                        <field name="display_value" invisible="1"/>
+                        <field name="required"  readonly="1"/>
+                        <field name="price_extra" readonly="1"/>
+                        <field name="attr_type" invisible="0"/>     
+                        <field name="string_value"
+                               attrs="{'invisible': [('attr_type','!=','string')], 'required': [('attr_type','in',['string'])]}" />
+                        <field name="selection_domain" invisible="1"/>     
+                        <field name="selection"
+                               widget="selection"
+                               domain="[('id','in',selection_domain[0][2])]"
+                               attrs="{'invisible': [('attr_type','!=','select')], 'required': [('attr_type','in',['select'])]}" />
+                        <field name="min_range" readonly="1"
+                               attrs="{'invisible': [('attr_type','not in',['range'])], 'required': [('attr_type','in',['range'])]}"/>
+                        <field name="max_range" readonly="1"
+                               attrs="{'invisible': [('attr_type','not in',['range'])], 'required': [('attr_type','in',['range'])]}"/>
+                        <field name="numeric_value" 
+                               attrs="{'invisible': [('attr_type','not in',['numeric','range'])]}"/>
+                        <field name="product" 
+                               attrs="{'invisible': [('attr_type','not in',['product'])], 'required': [('attr_type','in',['product'])]}"/>
+                        <field name="variant" 
+                               attrs="{'invisible': [('attr_type','not in',['variant'])], 'required': [('attr_type','in',['variant'])]}"/>
+                        <field name="category" 
+                               attrs="{'invisible': [('attr_type','not in',['category'])], 'required': [('attr_type','in',['category'])]}"/>
+                        <field name="description" widget="html" nolabel="1" readonly="1" colspan="2"/>
+                        <field name="selection_description"
+                               readonly="1"
+                               attrs="{'invisible': [('attr_type','!=','select')]}" />
+                        <field name="selection_image"
+                               widget="image"
+                               readonly="1"
+                               attrs="{'invisible': ['|',('attr_type','!=','select'),('selection_image','=',False)]}" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_configurator_form_view">
+            <field name="name">product.configurator.form</field>
+            <field name="model">product.configurator</field>
+            <field name="arch" type="xml">
+                <form string="Variant configurator">
+                    <header groups="base.group_user">
+                        <button class="oe_inline oe_stat_button" 
+                                string="Select"  
+                                name="action_select" 
+                                type="object" 
+                                icon="fa-check"/>
+                    </header>
+                    <h1>
+                        <field name="template" readonly="1"/>
+                    </h1>
+                    <field name="template_message" widget="html" readonly="1"/>
+                    <field name="options" nolabel="1" />
+                    <field name="conf_message" widget="html" readonly="1"/>
+                    <group name="footer">
+                        <field name="show_log" />
+                        <field name="log_registry"
+                               attrs="{'invisible': [('show_log','!=', True)]}" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,361 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_advanced_configurator
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-07 22:32+0000\n"
+"PO-Revision-Date: 2015-11-07 22:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_advanced_configurator
+#: view:product.attribute.value:product_advanced_configurator.product_attribute_value_search_view
+msgid "Attribute"
+msgstr "Atributo"
+
+#. module: product_advanced_configurator
+#: code:addons/product_advanced_configurator/models/product.py:258
+#: sql_constraint:product.attribute:0
+#, python-format
+msgid "Attribute Name must be unique!"
+msgstr "El nombre del atributo debe ser único!"
+
+#. module: product_advanced_configurator
+#: view:product.attribute.value:product_advanced_configurator.product_attribute_value_search_view
+msgid "Attribute Type"
+msgstr "Tipo de atributo"
+
+#. module: product_advanced_configurator
+#: field:product.configurator.option,attribute_line:0
+msgid "Attribute line"
+msgstr "Atributos"
+
+#. module: product_advanced_configurator
+#: view:product.attribute.value:product_advanced_configurator.product_attribute_value_extended_form_view
+msgid "Attribute value"
+msgstr "Valor del atributo"
+
+#. module: product_advanced_configurator
+#: selection:product.attribute,attr_type:0
+msgid "Category"
+msgstr "Categoría"
+
+#. module: product_advanced_configurator
+#: help:product.attribute,on_change:0
+msgid "Code triggered on any change in configurator. Parameters: <self>"
+msgstr "Código a ejecutar en cualquier cambio de configuración. Parámetros: <self>"
+
+#. module: product_advanced_configurator
+#: help:product.template,on_change:0
+msgid "Code triggered on any change in configurator. Parameters: <self>, <container>"
+msgstr "Código a ejecutar en cuaquier cambio de configuración. Parámetros: <self>, <container>"
+
+#. module: product_advanced_configurator
+#: help:product.template,on_configuration:0
+msgid "Code triggered on end of configuration. Parameter: <self>, <container>"
+msgstr "Código a ejecutar al finalizar la configuración. Parámetros: <self>, <container>"
+
+#. module: product_advanced_configurator
+#: help:product.template,on_variant_creation:0
+msgid "Code triggered on variant creation. Parameters: <self>, <new_variant>"
+msgstr "Código a ejecutar en la creación de variantes. Parámetros: <self>, <new_variant>"
+
+#. module: product_advanced_configurator
+#: view:product.template:product_advanced_configurator.variants_extend_form_view
+msgid "Conf.Events"
+msgstr "Conf.Eventos"
+
+#. module: product_advanced_configurator
+#: code:addons/product_advanced_configurator/models/product.py:404
+#: field:product.configurator.option,configurator:0
+#, python-format
+msgid "Configurator"
+msgstr "Configurador"
+
+#. module: product_advanced_configurator
+#: field:product.configurator,conf_message:0
+msgid "Configurator message"
+msgstr "Mensaje del configurador"
+
+#. module: product_advanced_configurator
+#: code:addons/product_advanced_configurator/models/product.py:160
+#, python-format
+msgid "Configure product"
+msgstr "Configurar producto"
+
+#. module: product_advanced_configurator
+#: field:product.attribute.line,default:0
+msgid "Default"
+msgstr "Por defecto"
+
+#. module: product_advanced_configurator
+#: field:product.attribute,description:0
+#: field:product.attribute.value,description:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: product_advanced_configurator
+#: code:addons/product_advanced_configurator/models/product.py:116
+#: code:addons/product_advanced_configurator/models/product.py:123
+#: code:addons/product_advanced_configurator/models/product.py:423
+#: code:addons/product_advanced_configurator/models/product.py:427
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: product_advanced_configurator
+#: code:addons/product_advanced_configurator/models/product.py:437
+#: code:addons/product_advanced_configurator/models/product.py:459
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: product_advanced_configurator
+#: field:product.attribute.line,price_extra:0
+msgid "Extra price"
+msgstr "Precio extra"
+
+#. module: product_advanced_configurator
+#: view:product.template:product_advanced_configurator.variants_extend_form_view
+msgid "Generate All"
+msgstr "Generar Todos"
+
+#. module: product_advanced_configurator
+#: view:product.attribute.value:product_advanced_configurator.product_attribute_value_search_view
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: product_advanced_configurator
+#: field:product.attribute,image:0
+#: field:product.attribute.value,image:0
+msgid "Image"
+msgstr "Imágen"
+
+#. module: product_advanced_configurator
+#: code:addons/product_advanced_configurator/models/product.py:460
+#, python-format
+msgid "Invalid option %s!. Correct it and try again"
+msgstr "Opción inválida %s!. Corríjala y pruebe nuevamente"
+
+#. module: product_advanced_configurator
+#: field:product.configurator,log_registry:0
+msgid "Log registry"
+msgstr "Registro de log"
+
+#. module: product_advanced_configurator
+#: field:product.attribute,max_range:0
+msgid "Max"
+msgstr "Máximo"
+
+#. module: product_advanced_configurator
+#: help:product.template,vc_message:0
+msgid "Message to be use by configurators to describe the possible variants"
+msgstr "Mensaje a utilizar en el configurador para describir las nuevas variantes"
+
+#. module: product_advanced_configurator
+#: field:product.attribute,min_range:0
+msgid "Min"
+msgstr "Mínimo"
+
+#. module: product_advanced_configurator
+#: code:addons/product_advanced_configurator/models/product.py:175
+#: code:addons/product_advanced_configurator/models/product.py:500
+#: view:product.template:product_advanced_configurator.variants_extend_form_view
+#, python-format
+msgid "New variant"
+msgstr "Nueva variante"
+
+#. module: product_advanced_configurator
+#: code:addons/product_advanced_configurator/models/product.py:117
+#: code:addons/product_advanced_configurator/models/product.py:124
+#, python-format
+msgid "No recursive partners are allowed [template: %(template)s, parent: %(parent)s]! Please check it"
+msgstr "No se permiten productos recursivos [producto: %(template)s, padre: %(parent)s]! Por favor revisar"
+
+#. module: product_advanced_configurator
+#: selection:product.attribute,attr_type:0
+msgid "Numeric"
+msgstr "Numérico"
+
+#. module: product_advanced_configurator
+#: field:product.attribute.value,numeric_value:0
+msgid "Numeric Value"
+msgstr "Valor numérico"
+
+#. module: product_advanced_configurator
+#: field:product.configurator.option,numeric_value:0
+msgid "Numeric value"
+msgstr "Valor numérico"
+
+#. module: product_advanced_configurator
+#: field:product.attribute,on_change:0
+#: field:product.attribute.line,on_change:0
+#: field:product.attribute.value,on_change:0
+#: field:product.template,on_change:0
+msgid "On change"
+msgstr "Al cambiar"
+
+#. module: product_advanced_configurator
+#: field:product.template,on_configuration:0
+msgid "On configuration"
+msgstr "Al configurar"
+
+#. module: product_advanced_configurator
+#: field:product.template,on_variant_creation:0
+msgid "On variant creation"
+msgstr "Al crear variante"
+
+#. module: product_advanced_configurator
+#: code:addons/product_advanced_configurator/models/product.py:424
+#, python-format
+msgid "Option %s is mandatory!. Complete it and try again"
+msgstr "La opción %s is mandatoria!. Complétela e intente nuevamente"
+
+#. module: product_advanced_configurator
+#: code:addons/product_advanced_configurator/models/product.py:428
+#, python-format
+msgid "Option %s is not with allowed range\n"
+"Current value: %f, minimun: %f, maximun: %f!. Complete it and try again"
+msgstr "La opción %s no está dentro del rango permitido\n"
+"Valor: %f, mínimo: %f, máximo: %f!. Revísela e intente nuevamente"
+
+#. module: product_advanced_configurator
+#: code:addons/product_advanced_configurator/models/product.py:438
+#, python-format
+msgid "Option %s should be configured!. Correct it and try again"
+msgstr "La opción %s debe ser configurada!. Corríjala y vuelva a intentar"
+
+#. module: product_advanced_configurator
+#: view:product.template:product_advanced_configurator.variants_extend_form_view
+msgid "Options"
+msgstr "Opciones"
+
+#. module: product_advanced_configurator
+#: field:product.template,own_attribute_lines:0
+msgid "Own attribute lines"
+msgstr "Lineas de atributos propios"
+
+#. module: product_advanced_configurator
+#: field:product.template,parents:0
+msgid "Parent products"
+msgstr "Productos padres"
+
+#. module: product_advanced_configurator
+#: model:ir.model,name:product_advanced_configurator.model_product_product
+#: selection:product.attribute,attr_type:0
+#: field:product.attribute.value,product:0
+#: field:product.configurator.option,product:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_advanced_configurator
+#: model:ir.model,name:product_advanced_configurator.model_product_attribute
+msgid "Product Attribute"
+msgstr "Atributo de producto"
+
+#. module: product_advanced_configurator
+#: model:ir.model,name:product_advanced_configurator.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de Producto"
+
+#. module: product_advanced_configurator
+#: field:product.attribute.value,category:0
+#: field:product.configurator.option,category:0
+msgid "Product category"
+msgstr "Categoría de producto"
+
+#. module: product_advanced_configurator
+#: selection:product.attribute,attr_type:0
+msgid "Range"
+msgstr "Rango"
+
+#. module: product_advanced_configurator
+#: field:product.attribute.line,required:0
+msgid "Required"
+msgstr "Requerido"
+
+#. module: product_advanced_configurator
+#: selection:product.attribute,attr_type:0
+#: view:product.configurator:product_advanced_configurator.product_configurator_form_view
+msgid "Select"
+msgstr "Selección"
+
+#. module: product_advanced_configurator
+#: field:product.configurator.option,selection:0
+msgid "Selection"
+msgstr "Selección"
+
+#. module: product_advanced_configurator
+#: field:product.attribute.line,sequence:0
+#: field:product.configurator.option,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: product_advanced_configurator
+#: selection:product.attribute,attr_type:0
+msgid "String"
+msgstr "String"
+
+#. module: product_advanced_configurator
+#: field:product.attribute.value,string_value:0
+#: field:product.configurator.option,string_value:0
+msgid "String Value"
+msgstr "Valor string"
+
+#. module: product_advanced_configurator
+#: field:product.attribute,attr_type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: product_advanced_configurator
+#: field:product.attribute.value,display_value:0
+#: field:product.configurator.option,display_value:0
+msgid "Value"
+msgstr "Valor"
+
+#. module: product_advanced_configurator
+#: selection:product.attribute,attr_type:0
+#: field:product.attribute.value,variant:0
+#: field:product.configurator.option,variant:0
+#: view:product.template:product_advanced_configurator.variants_extend_form_view
+msgid "Variant"
+msgstr "Variante"
+
+#. module: product_advanced_configurator
+#: view:product.attribute.value:product_advanced_configurator.product_attribute_value_search_view
+msgid "Variant Values"
+msgstr "Valores de las variantes"
+
+#. module: product_advanced_configurator
+#: view:product.configurator:product_advanced_configurator.product_configurator_form_view
+#: view:product.configurator.option:product_advanced_configurator.product_configurator_option_form_view
+msgid "Variant configurator"
+msgstr "Configurador de variantes"
+
+#. module: product_advanced_configurator
+#: field:product.template,vc_message:0
+msgid "Variant creation message"
+msgstr "Mensaje de creación de variantes"
+
+#. module: product_advanced_configurator
+#: view:product.configurator.option:product_advanced_configurator.product_configurator_tree_view
+msgid "Variant options"
+msgstr "Opciones de variante"
+
+#. module: product_advanced_configurator
+#: view:product.template:product_advanced_configurator.variants_extend_form_view
+msgid "Variants"
+msgstr "Variantes"
+
+#. module: product_advanced_configurator
+#: view:product.attribute:product_advanced_configurator.product_attribute_extended_form_view
+msgid "{'invisible': [('attr_type','!=','select')], 'required': [('attr_type','in',['select'])]}"
+msgstr "{'invisible': [('attr_type','!=','select')], 'required': [('attr_type','in',['select'])]}"
+

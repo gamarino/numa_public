@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="sale_order_extended_form_view">
+            <field name="name">sale.order.extended.form for adv. configurator</field>
+            <field name="model">sale.order</field>
+            <field name="mode">extension</field>
+            <field name="inherit_id" ref="sale_product_variants.sale_order_extended_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/form//field[@name='product_attributes']"
+                       position="replace">
+                    <field name="product_attributes" invisible="True" />
+                    <field name="options">
+                        <tree create="false" delete="false">
+                            <field name="attribute" />
+                            <field name="display_value" />
+                            <field name="price_extra" />
+                            <field name="attribute_line" invisible="1"/>
+                            <field name="description" invisible="1"/>
+                            <field name="attribute_image" invisible="1"/>
+                            <field name="attr_type" invisible="1"/>
+                            <field name="required" invisible="1"/>
+                            <field name="price_extra" invisible="1"/>
+                            <field name="string_value" invisible="1"/>
+                            <field name="numeric_value" invisible="1"/>
+                            <field name="min_range" invisible="1"/>
+                            <field name="max_range" invisible="1"/>
+                            <field name="selection_domain" invisible="1"/>
+                            <field name="selection" invisible="1"/>
+                            <field name="selection_description" invisible="1"/>
+                            <field name="selection_image" invisible="1"/>
+                            <field name="product" invisible="1"/>
+                            <field name="variant" invisible="1"/>
+                            <field name="category" invisible="1"/>
+                        </tree>
+                    </field>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form//field[@name='product_template']"
+                       position="before">
+                    <field name="category"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form"
+                       position="inside">
+                    <group name="log">
+                        <field name="show_log" />
+                        <field name="log_registry"
+                               attrs="{'invisible': [('show_log','!=',True)]}" />
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

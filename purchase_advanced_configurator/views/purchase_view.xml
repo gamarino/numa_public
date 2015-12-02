@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="purchase_order_line_form">
+            <field name="name">purchase_order_form for adv. configurator</field>
+            <field name="model">purchase.order.line</field>
+            <field name="mode">extension</field>
+            <field name="inherit_id" ref="purchase.purchase_order_line_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/group/group"
+                       position="replace">
+                    <group>
+                        <field name="product_template" />
+                        <div colspan="4" 
+                             attrs="{'invisible': [('options','=',[])]}" >
+                            <field name="options" >
+                                <tree create="false" delete="false">
+                                    <field name="attribute" />
+                                    <field name="display_value" />
+                                    <field name="attribute_line" invisible="1"/>
+                                    <field name="description" invisible="1"/>
+                                    <field name="attribute_image" invisible="1"/>
+                                    <field name="attr_type" invisible="1"/>
+                                    <field name="required" invisible="1"/>
+                                    <field name="price_extra" invisible="1"/>
+                                    <field name="string_value" invisible="1"/>
+                                    <field name="numeric_value" invisible="1"/>
+                                    <field name="min_range" invisible="1"/>
+                                    <field name="max_range" invisible="1"/>
+                                    <field name="selection_domain" invisible="1"/>
+                                    <field name="selection" invisible="1"/>
+                                    <field name="selection_description" invisible="1"/>
+                                    <field name="selection_image" invisible="1"/>
+                                    <field name="product" invisible="1"/>
+                                    <field name="variant" invisible="1"/>
+                                    <field name="category" invisible="1"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <field name="product_id" on_change="onchange_product_id(parent.pricelist_id,product_id,0,False,parent.partner_id, parent.date_order,parent.fiscal_position,date_planned,False,False,'draft',context)"/>
+                        <label for="product_qty"/>
+                        <div>
+                            <field name="product_qty" on_change="onchange_product_id(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id,parent.date_order,parent.fiscal_position,date_planned,name,False,'draft',context)" class="oe_inline"/>
+                            <field name="product_uom" groups="product.group_uom" on_change="onchange_product_uom(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id, parent.date_order,parent.fiscal_position,date_planned,name,False,'draft',context)" class="oe_inline"/>
+                        </div>
+                        <field name="price_unit"/>
+                    </group>
+                </xpath>
+                <xpath expr="//form/sheet"
+                       position="inside">
+                    <group name="log">
+                        <field name="show_log" />
+                        <field name="log_registry"
+                               attrs="{'invisible': [('show_log','!=',True)]}" />
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
