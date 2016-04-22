@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-24 15:01+0000\n"
-"PO-Revision-Date: 2015-11-24 15:01+0000\n"
+"POT-Creation-Date: 2016-04-02 19:58+0000\n"
+"PO-Revision-Date: 2016-04-02 19:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -41,6 +41,11 @@ msgstr "Asignada"
 #: field:service.order,assigned_to:0
 msgid "Assigned to"
 msgstr "Asignada a"
+
+#. module: numa_services
+#: view:website:numa_services.report_serviceorder_document
+msgid "Assigned to:"
+msgstr "Asignada a:"
 
 #. module: numa_services
 #: view:service.order:numa_services.service_order_form
@@ -86,7 +91,7 @@ msgstr "Ordenes de servicio confirmadas listas para ser realizadas"
 #. module: numa_services
 #: view:service.order:numa_services.service_order_form
 msgid "Create PO"
-msgstr "Crear PO"
+msgstr "Crear OC"
 
 #. module: numa_services
 #: view:service.order:numa_services.service_order_form
@@ -114,14 +119,34 @@ msgid "Customer"
 msgstr "Cliente"
 
 #. module: numa_services
+#: view:website:numa_services.report_serviceorder_document
+msgid "Customer:"
+msgstr "Cliente:"
+
+#. module: numa_services
+#: view:website:numa_services.report_serviceorder_document
+msgid "Date Planned:"
+msgstr "Fecha planeada:"
+
+#. module: numa_services
 #: help:service.order,message_last_post:0
 msgid "Date of the last message posted on the record."
 msgstr "Fecha del último mensaje enviado al registro."
 
 #. module: numa_services
+#: view:website:numa_services.report_serviceorder_document
+msgid "Date started:"
+msgstr "Fecha de comienzo:"
+
+#. module: numa_services
 #: view:service.order:numa_services.service_order_kanban
 msgid "Delete"
 msgstr "Borrar"
+
+#. module: numa_services
+#: view:website:numa_services.report_serviceorder_document
+msgid "Delivered Qty"
+msgstr "Cant. provista"
 
 #. module: numa_services
 #: field:service.order.line,delivered_qty:0
@@ -199,38 +224,38 @@ msgid "In execution"
 msgstr "En ejecución"
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:277
+#: code:addons/numa_services/services.py:275
 #, python-format
 msgid "Invalid state for assignation on Service Order %s"
 msgstr "Estado inválido para la asignación de una Orden de Servicio %s"
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:303
-#: code:addons/numa_services/services.py:317
+#: code:addons/numa_services/services.py:301
+#: code:addons/numa_services/services.py:315
 #, python-format
 msgid "Invalid state for completion of execution on Service Order %s"
 msgstr "Estado inválido para completar una Orden de Servicio %s"
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:266
+#: code:addons/numa_services/services.py:264
 #, python-format
 msgid "Invalid state for confirmation on Service Order %s"
 msgstr "Estado inválido para confirmar una Orden de Servicio %s"
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:287
+#: code:addons/numa_services/services.py:285
 #, python-format
 msgid "Invalid state for starting execution on Service Order %s"
 msgstr "Estado inválido para comenzar la ejecución de una Orden de Servicio %s"
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:333
+#: code:addons/numa_services/services.py:331
 #, python-format
 msgid "Invalid state to move the Service Order %s back to draft"
 msgstr "Estado inválido para volver a borrador una Orden de Servicio %s"
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:325
+#: code:addons/numa_services/services.py:323
 #, python-format
 msgid "Invalid state to put into evalutaion on Service Order %s"
 msgstr "Estado inválido para poner en evalución una Orden de Servicio %s"
@@ -296,7 +321,7 @@ msgid "New Mail"
 msgstr "Nuevo mail"
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:355
+#: code:addons/numa_services/services.py:353
 #, python-format
 msgid "No reference Sale Order! It is not possible to create an invoice."
 msgstr "No hay referencia a la Orden de Venta! No es posible crear la Factura."
@@ -306,6 +331,11 @@ msgstr "No hay referencia a la Orden de Venta! No es posible crear la Factura."
 #: field:service.order,notes:0
 msgid "Notes"
 msgstr "Notas"
+
+#. module: numa_services
+#: view:website:numa_services.report_serviceorder_document
+msgid "Notes:"
+msgstr "Notas:"
 
 #. module: numa_services
 #: model:ir.actions.client,name:numa_services.action_client_service_menu
@@ -338,13 +368,13 @@ msgid "Planned date"
 msgstr "Fecha planificada"
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:350
+#: code:addons/numa_services/services.py:348
 #, python-format
 msgid "Please define an accounting sale journal for this company."
 msgstr "Por favor defina un diario de ventas para esta compañía."
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:495
+#: code:addons/numa_services/services.py:493
 #, python-format
 msgid "Please define income account for this product: \"%s\" (id:%d) - or for its category: \"%s\"."
 msgstr "Por favor defina una cuenta de ingresos para este producto: \"%s\" (id:%d) - o para esta categoría: \"%s\"."
@@ -362,7 +392,7 @@ msgstr "Plantilla de Producto"
 #. module: numa_services
 #: view:product.template:numa_services.product_template_form_view
 msgid "Public Service"
-msgstr "Public Service"
+msgstr "Servicio Público"
 
 #. module: numa_services
 #: field:service.order,po:0
@@ -373,6 +403,11 @@ msgstr "Orden de Compra"
 #: selection:service.order,state:0
 msgid "Ready"
 msgstr "Lista"
+
+#. module: numa_services
+#: view:website:numa_services.report_serviceorder_document
+msgid "Requested Qty"
+msgstr "Cant. solicitada"
 
 #. module: numa_services
 #: field:service.order.line,requested_qty:0
@@ -415,6 +450,11 @@ msgid "Sequence"
 msgstr "Secuencia"
 
 #. module: numa_services
+#: view:website:numa_services.report_serviceorder_document
+msgid "Service"
+msgstr "Servicio"
+
+#. module: numa_services
 #: model:ir.model,name:numa_services.model_service_class
 #: field:product.template,service_class:0
 #: view:service.order:numa_services.service_order_search
@@ -428,6 +468,7 @@ msgid "Service Manager"
 msgstr "Gerente de Servicio"
 
 #. module: numa_services
+#: model:ir.actions.report.xml,name:numa_services.report_service_order
 #: model:ir.model,name:numa_services.model_service_order
 #: view:service.order:numa_services.service_order_form
 #: view:service.order:numa_services.service_order_search
@@ -436,15 +477,20 @@ msgid "Service Order"
 msgstr "Orden de Servicio"
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:279
-#: code:addons/numa_services/services.py:289
-#: code:addons/numa_services/services.py:305
+#: view:website:numa_services.report_serviceorder_document
+msgid "Service Order #"
+msgstr "Orden de Servicio #"
+
+#. module: numa_services
+#: code:addons/numa_services/services.py:277
+#: code:addons/numa_services/services.py:287
+#: code:addons/numa_services/services.py:303
 #, python-format
 msgid "Service Order %s is not assigned to anyone! Please check it"
 msgstr "La orden de servicio %s no está asignada a nadie! Por favor revisar"
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:291
+#: code:addons/numa_services/services.py:289
 #, python-format
 msgid "Service Order %s should be subcontracted but no supplier is specified! Please check it"
 msgstr "La orden de servicio %s debe ser subcontratada pero no se ha configurado ningún proveedor! Por favor revisar"
@@ -524,6 +570,11 @@ msgid "Unread Messages"
 msgstr "Mensajes NO leidos"
 
 #. module: numa_services
+#: view:website:numa_services.report_serviceorder_document
+msgid "UoM"
+msgstr "UoM"
+
+#. module: numa_services
 #: view:sale.order:numa_services.view_order_form_inherit
 msgid "View Service orders"
 msgstr "Ver Ordenes de servicio"
@@ -541,7 +592,7 @@ msgid "Website communication history"
 msgstr "Historial de comunicaciones del sitio web"
 
 #. module: numa_services
-#: code:addons/numa_services/services.py:268
+#: code:addons/numa_services/services.py:266
 #, python-format
 msgid "You can't confirm a Service Order without items! Please check it"
 msgstr "No se puede confirmar una Orden de servicio sin items! Por favor revisar"

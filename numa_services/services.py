@@ -63,6 +63,7 @@ class SaleOrder(models.Model):
             context = {}
         serviceOrderObj = self.pool['service.order']
         serviceOrderLineObj = self.pool['service.order.line']
+        hrObj = self.pool['hr.employee']
         
         for order in self.browse(cr, uid, ids, context=context):
             suppliers = {}
@@ -90,12 +91,14 @@ class SaleOrder(models.Model):
                     vals = serviceOrderObj.default_get(cr, uid,
                                                         serviceOrderObj.fields_get(cr, uid, context=context).keys(),
                                                         context=context)
+                    user_ids = hrObj.search(cr, uid, [('user_id','=',uid)], limit=1, context=context)
                     vals.update({
                         'customer': order.partner_id.id,
                         'sale_order': order.id,
                         'supplier': supplier and supplier.id or False,
                         'subcontracted': supplier and True,
                         'service_class': service_class and service_class.id or False,
+                        'assigned_to': user_ids and user_ids[0] or False,
                     })
                     newServiceOrderId = serviceOrderObj.create(cr, uid, vals, context=context)
                     newServiceOrder = serviceOrderObj.browse(cr, uid, newServiceOrderId, context=context)
@@ -202,29 +205,33 @@ class ServiceOrder(models.Model):
                     ('canceled', 'Canceled'),
                     ('evaluation', 'In evaluation'),
                 ], 'State', default='draft', readonly=True)
+    sale_order = fields.Many2one('sale.order', 'Sale Order',
+                                 required=True,
+                                 readonly=True, states={'draft': [('readonly', False)]})
+    customer = fields.Many2one('res.partner', 'Customer',
+                               related='sale_order.partner_id',
+                               readonly=True)
+                               
     service_class = fields.Many2one('service.class', 'Service Class',
                                     required=True,
                                     readonly=True, states={'draft': [('readonly', False)]})
     assigned_to = fields.Many2one('hr.employee', 'Assigned to',
-                                  readonly=True, states={'draft': [('readonly', False)]})
-    customer = fields.Many2one('res.partner', 'Customer',
-                               required=True,
-                               domain=[('customer','=',True)],
-                               readonly=True, states={'draft': [('readonly', False)]})
-
+                                  readonly=True, states={'draft': [('readonly', False)],
+                                                         'ready': [('readonly', False)]})
     subcontracted = fields.Boolean('Is it subcontracted?', 
-                                 readonly=True, states={'draft': [('readonly', False)]})
+                                 readonly=True, states={'draft': [('readonly', False)],
+                                                        'ready': [('readonly', False)],
+                                                        'assigned': [('readonly', False)]})
     supplier = fields.Many2one('res.partner', 'Supplier',
                                domain=[('supplier','=',True)],
-                               readonly=True, states={'draft': [('readonly', False)]})
+                               readonly=True, states={'draft': [('readonly', False)],
+                                                      'ready': [('readonly', False)],
+                                                      'assigned': [('readonly', False)]})
     po = fields.Many2one('purchase.order', 'Purchase Order',
                                domain=[('supplier','=',True)],
                                readonly=True, states={'draft': [('readonly', False)], 
                                                       'ready': [('readonly', False)],
                                                       'assigned': [('readonly', False)]})
-
-    sale_order = fields.Many2one('sale.order', 'Sale Order',
-                                 readonly=True, states={'draft': [('readonly', False)]})
 
     planned_date = fields.Date('Planned date',
                                readonly=True, states={'draft': [('readonly', False)], 
@@ -343,7 +350,7 @@ class ServiceOrder(models.Model):
         a clean extension chain).
         """
         self.ensure_one()
-        journal_ids = self.env['account.journal'].search([('type', '=', 'sale'), ('company_id', '=', self.company_id.id)], limit=1)
+        journal_ids = self.env['account.journal'].search([('type', '=', 'sale'), ('company_id', '=', self.company.id)], limit=1)
         if not journal_ids:
             raise ValidationError(_('Please define an accounting sale journal for this company.'))
             
@@ -357,16 +364,16 @@ class ServiceOrder(models.Model):
             'origin': so.sale_order.name,
             'type': 'out_invoice',
             'reference': so.sale_order.client_order_ref or self.name,
-            'account_id': so.sale_order.partner_invoice_id.property_account_receivable_id.id,
+            'account_id': so.sale_order.partner_invoice_id.property_account_receivable.id,
             'partner_id': so.sale_order.partner_invoice_id.id,
             'journal_id': journal_ids[0].id,
             'currency_id': so.sale_order.pricelist_id.currency_id.id,
-            'comment': so.note,
-            'payment_term_id': so.sale_order.payment_term_id.id,
-            'fiscal_position_id': so.sale_order.fiscal_position_id.id or self.partner_invoice_id.property_account_position_id.id,
+            'comment': so.notes,
+            'payment_term': so.sale_order.payment_term.id,
+            'fiscal_position': so.sale_order.fiscal_position.id or self.sale_order.partner_invoice_id.property_account_position.id or False,
             'company_id': so.company.id,
-            'user_id': self.env.user_id.id,
-            'team_id': so.sale_order.team_id.id
+            'user_id': so.env.user.id,
+            'pricelist_id': so.sale_order.pricelist_id.id,
         }
         return invoice_vals
 
@@ -385,29 +392,37 @@ class ServiceOrder(models.Model):
 
         for order in self:
             group_key = order.id if grouped else (order.partner_id.id, order.currency_id.id)
-            for line in order.lines.sorted(key=lambda l: l.qty_to_invoice < 0):
-                if float_is_zero(line.qty_to_invoice, precision_digits=precision):
+            for line in order.lines.sorted(key=lambda l: l.delivered_qty > 0):
+                if float_is_zero(line.delivered_qty, precision_digits=precision):
                     continue
                 if group_key not in invoices:
                     inv_data = order._prepare_invoice()
                     invoice = inv_obj.create(inv_data)
                     invoices[group_key] = invoice
-                if line.qty_to_invoice > 0:
-                    line.invoice_line_create(invoices[group_key].id, line.deliverd_quantity)
-                elif line.qty_to_invoice < 0 and final:
-                    line.invoice_line_create(invoices[group_key].id, line.deliverd_quantity)
+                if line.delivered_qty > 0:
+                    line.invoice_line_create(invoices[group_key].id, line.delivered_qty)
+                elif line.delivered_qty < 0 and final:
+                    line.invoice_line_create(invoices[group_key].id, line.delivered_qty)
 
-        for invoice in invoices.values():
-            # If invoice is negative, do a refund invoice instead
-            if invoice.amount_untaxed < 0:
-                invoice.type = 'out_refund'
-                for line in invoice.invoice_line_ids:
-                    line.quantity = -line.quantity
-            # Necessary to force computation of taxes. In account_invoice, they are triggered
-            # by onchanges, which are not triggered when doing a create.
-            invoice.compute_taxes()
+        mod_obj = self.env['ir.model.data']
+        
+        new_inv_ids = [i.id for i in invoices.values()]
 
-        return [inv.id for inv in invoices.values()]
+        res = mod_obj.get_object_reference('account', 'invoice_form')
+        res_id = res and res[1] or False,
+
+        return {
+            'name': _('Customer Invoices'),
+            'view_type': 'form',
+            'view_mode': 'form',
+            'view_id': [res_id],
+            'res_model': 'account.invoice',
+            'context': "{'type':'out_invoice'}",
+            'type': 'ir.actions.act_window',
+            'nodestroy': True,
+            'target': 'current',
+            'res_id': new_inv_ids and new_inv_ids[0] or False,
+        }
 
     @api.multi
     def _prepare_po(self):
@@ -488,14 +503,14 @@ class ServiceOrderLine(models.Model):
         """
         self.ensure_one()
         res = {}
-        account_id = self.product.property_account_income_id.id or self.product.categ_id.property_account_income_categ_id.id
+        account_id = self.product.property_account_income.id or self.product.categ_id.property_account_income_categ.id
         if not account_id:
             raise ValidationError(_('Please define income account for this product: "%s" (id:%d) - or for its category: "%s".') % \
                                    (self.product.name, self.product.id, self.product.categ_id.name))
 
-        fpos = self.order.sale_order.fiscal_position_id or self.order.sale_order.partner_id.property_account_position_id
+        fpos = self.order.sale_order.fiscal_position.id or self.order.sale_order.partner_id.property_account_position
         if fpos:
-            account_id = self.order.sale_order.fiscal_position_id.map_account(account_id)
+            account_id = self.order.sale_order.fiscal_position.map_account(account_id)
 
         res = {
             'name': self.product.name,
@@ -507,8 +522,8 @@ class ServiceOrderLine(models.Model):
             'discount': self.so_line.discount,
             'uom_id': self.product_uom.id,
             'product_id': self.product.id or False,
-            'invoice_line_tax_ids': [(6, 0, self.so_line.tax_id.ids)],
-            'account_analytic_id': self.so_line.order_id.order_id.project_id.id,
+            'invoice_line_tax_id': [(6, 0, self.so_line.tax_id.ids)],
+            'account_analytic_id': self.so_line.order_id.project_id.id,
         }
         return res
 
@@ -566,9 +581,9 @@ class ServiceOrderLine(models.Model):
         product = self.product.with_context(
             lang=self.order.customer.lang,
             partner=self.order.customer.id,
-            quantity=self.product_uom_qty,
-            date=self.so_line.order.date_order,
-            pricelist=self.so_line.order.pricelist_id.id,
+            quantity=self.requested_qty,
+            date=self.so_line.order_id.date_order,
+            pricelist=self.so_line.order_id.pricelist_id.id,
             uom=self.product_uom.id
         )
 

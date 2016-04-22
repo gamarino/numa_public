@@ -66,6 +66,8 @@ small accesories). This can be added to the service order as additional items
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'report_serviceorder.xml',
+        'service_report.xml',
         'services_view.xml',
         'data.xml',
     ],
