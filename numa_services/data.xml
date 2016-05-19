@@ -2,14 +2,6 @@
 <openerp>
     <data noupdate="1">
 
-        <!-- After installation of the module, open the related menu -->
-        <record id="action_client_service_menu" model="ir.actions.client">
-            <field name="name">Open Service Menu</field>
-            <field name="tag">reload</field>
-            <field name="params" eval="{'menu_id': ref('service_menu')}"/>
-        </record>
-
-
         <!-- notify all employees of module installation -->
         <record model="mail.message" id="module_install_notification">
             <field name="model">mail.group</field>
