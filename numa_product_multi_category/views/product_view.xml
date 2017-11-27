@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="product_template_search_view" model="ir.ui.view">
+            <field name="name">Product with extended categories search</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view" />
+            <field name="arch" type="xml">
+				<data>
+					<field name="categ_id" position="replace">
+						<field name="extended_categories"/>
+					</field>
+				</data>
+			</field>
+		</record>
+
+        <record id="product_template_tree_view" model="ir.ui.view">
+            <field name="name">Product with extended categories tree</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view" />
+            <field name="arch" type="xml">
+				<data>
+                    <field name="categ_id" position="replace">
+						<field name="extended_categories" widget="many2many_tags"/>
+					</field>
+				</data>
+			</field>
+		</record>
+            
+        <record id="product_template_form_view" model="ir.ui.view">
+            <field name="name">Product with extended categories form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view" />
+            <field name="arch" type="xml">
+				<data>
+                    <field name="categ_id" position="replace">
+						<field name="extended_categories" widget="many2many_tags" placeholder="Agregar Categoría..."/>
+					</field>
+				</data>
+			</field>
+		</record>
+        
+
+        <record id="product_search_form_view" model="ir.ui.view">
+            <field name="name">Variant with extended categories search</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view" />
+            <field name="arch" type="xml">
+				<data>
+					<field name="product_tmpl_id" position="after">
+						<field name="extended_categories"/>
+					</field>
+				</data>
+			</field>
+		</record>
+     
+    </data>
+</openerp>

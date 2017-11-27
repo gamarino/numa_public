@@ -1,0 +1,65 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_advanced_configurator
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-06 02:08+0000\n"
+"PO-Revision-Date: 2017-04-06 02:08+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_advanced_configurator
+#: model:ir.model.fields,field_description:sale_advanced_configurator.field_sale_order_line_log_registry
+msgid "Log registry"
+msgstr ""
+
+#. module: sale_advanced_configurator
+#: model:ir.model.fields,field_description:sale_advanced_configurator.field_sale_order_line_options
+msgid "Options"
+msgstr ""
+
+#. module: sale_advanced_configurator
+#: model:ir.model.fields,field_description:sale_advanced_configurator.field_product_configurator_option_sol
+msgid "Sale order line"
+msgstr ""
+
+#. module: sale_advanced_configurator
+#: model:ir.model,name:sale_advanced_configurator.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: sale_advanced_configurator
+#: model:ir.model.fields,field_description:sale_advanced_configurator.field_sale_order_line_show_log
+msgid "Show log"
+msgstr ""
+
+#. module: sale_advanced_configurator
+#: code:addons/sale_advanced_configurator/models/sale.py:171
+#, python-format
+msgid "Variant could not be created! Product %s. Please check it"
+msgstr ""
+
+#. module: sale_advanced_configurator
+#: code:addons/sale_advanced_configurator/models/sale.py:142
+#, python-format
+msgid "You can not confirm a line without product and no template! Please check it"
+msgstr ""
+
+#. module: sale_advanced_configurator
+#: code:addons/sale_advanced_configurator/models/sale.py:135
+#, python-format
+msgid "You can not confirm before configuring all attribute values. Option %s is empty"
+msgstr ""
+
+#. module: sale_advanced_configurator
+#: model:ir.model,name:sale_advanced_configurator.model_product_configurator_option
+msgid "product.configurator.option"
+msgstr ""
+

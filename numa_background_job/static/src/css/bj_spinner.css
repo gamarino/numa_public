@@ -1,0 +1,45 @@
+.o_bjprogressbar {
+    height: 30px;
+    width: 100%;
+	margin: 5px 0;
+}
+
+.o_bjprogressbar_value {
+    color: #666;
+}
+
+.o_bjprogressbar_frame {
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1;
+    position: relative;
+    top: -30px;
+    text-align: center;
+}
+
+.o_bjprogressbar_indicator{
+    height: 30px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    z-index: -1;
+}
+
+.o_bjprogressbar_abort {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 4px;
+	float: right;
+	text-align: center;
+	background: #e0e0e0;
+    color: #666;
+}
+
+.o_bjprogressbar_abort:hover {
+	background: #666;
+    color: #e0e0e0;
+    cursor: pointer;
+}

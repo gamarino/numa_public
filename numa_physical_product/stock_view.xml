@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="stock_move_tree" model="ir.ui.view">
+            <field name="name">Stock Moves</field>
+            <field name="model">stock.move</field>
+            <field name="mode">extension</field>
+            <field name="inherit_id" ref="stock.stock_move_tree" />
+            <field name="arch" type="xml">
+                <data>
+                    <field name="product_uom_qty" position="after">
+                        <field name="total_volume"/>
+                        <field name="total_weight"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_move_pivot" model="ir.ui.view">
+            <field name="name">stock.move.pivot</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_pivot" />
+            <field name="arch" type="xml">
+                <data>
+                    <field name="product_uom_qty" position="after">
+                        <field name="total_weight" type="measure"/>
+                        <field name="total_volume" type="measure"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_move_picking_tree" model="ir.ui.view">
+            <field name="name">stock.move.tree</field>
+            <field name="model">stock.move</field>
+            <field name="mode">extension</field>
+            <field name="inherit_id" ref="stock.view_move_picking_tree" />
+            <field name="arch" type="xml">
+                <data>
+                    <field name="product_uom_qty" position="after">
+                        <field name="total_volume"/>
+                        <field name="total_weight"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_move_form" model="ir.ui.view">
+            <field name="name">stock.move.form</field>
+            <field name="model">stock.move</field>
+            <field name="mode">extension</field>
+            <field name="inherit_id" ref="stock.view_move_form" />
+            <field name="arch" type="xml">
+                <data>
+                    <field name="product_id" position="after">
+                         <field name="unit_weight" invisible="1"/>
+                         <field name="total_volume" />
+                         <field name="total_weight" />
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_move_picking_form" model="ir.ui.view">
+            <field name="name">stock.move.form</field>
+            <field name="model">stock.move</field>
+            <field name="mode">extension</field>
+            <field name="inherit_id" ref="stock.view_move_form" />
+            <field name="arch" type="xml">
+                <data>
+                    <field name="product_id" position="after">
+                         <field name="unit_weight" />
+                         <field name="total_volume" />
+                         <field name="total_weight" />
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_picking_form" model="ir.ui.view">
+            <field name="name">stock.picking.form</field>
+            <field name="model">stock.picking</field>
+            <field name="mode">extension</field>
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="arch" type="xml">
+                <data>
+                    <field name="backorder_id" position="after" >
+                        <field name="total_volume"/>
+                        <field name="total_weight"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

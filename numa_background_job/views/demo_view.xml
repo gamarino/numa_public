@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="background_job_testform">
+            <field name="name">NUMA Background job test form</field>
+            <field name="model">res.background_job_test</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Background Job Test">
+                    <group name="main_info" col="2">
+                        <field name="job" widget="bj_spinner"/>
+                    </group>
+                    <footer>
+                        <button name="action_start"
+                                type="object"
+                                string="Start"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="background_job_test_action" model="ir.actions.act_window">
+            <field name="name">Background job Test</field>
+            <field name="res_model">res.background_job_test</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="background_job_test_menu"
+            action="background_job_test_action"
+            parent="background_jobs_submenu" 
+            sequence="20"/>
+
+    </data>
+</openerp>

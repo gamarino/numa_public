@@ -1,110 +1,154 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * sale_product_variants
-# 
-# Translators:
+#	* sale_product_variants
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: odoomrp-wip (8.0)\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-07 10:45+0000\n"
-"PO-Revision-Date: 2015-10-09 10:50+0000\n"
-"Last-Translator: Pedro M. Baeza <pedro.baeza@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/odoomrp-wip-8-0/language/es/)\n"
+"POT-Creation-Date: 2017-04-06 00:23+0000\n"
+"PO-Revision-Date: 2017-04-06 00:23+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: \n"
 
 #. module: sale_product_variants
-#: view:sale.order:sale_product_variants.sale_order_extended_form_view
+#: model:ir.ui.view,arch_db:sale_product_variants.sale_order_extended_form_view
 msgid "(update)"
 msgstr "(actualizar)"
 
 #. module: sale_product_variants
-#: field:sale.order.line.attribute,attribute:0
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute_attribute
 msgid "Attribute"
 msgstr "Atributo"
 
 #. module: sale_product_variants
-#: field:sale.order.line.attribute,create_uid:0
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute_price_extra
+msgid "Attribute Price Extra"
+msgstr "Precio extra del atributo"
+
+#. module: sale_product_variants
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_category
+msgid "Category"
+msgstr "Categoría"
+
+#. module: sale_product_variants
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute_create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: sale_product_variants
-#: field:sale.order.line.attribute,create_date:0
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute_create_date
 msgid "Created on"
 msgstr "Creado en"
 
 #. module: sale_product_variants
-#: view:sale.order:sale_product_variants.sale_order_extended_form_view
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: sale_product_variants
+#: model:ir.ui.view,arch_db:sale_product_variants.sale_order_extended_form_view
 msgid "Duplicate"
 msgstr "Duplicar"
 
 #. module: sale_product_variants
-#: view:sale.order:sale_product_variants.sale_order_extended_form_view
+#: model:ir.ui.view,arch_db:sale_product_variants.sale_order_extended_form_view
 msgid "Duplicate line"
 msgstr "Duplicar línea"
 
 #. module: sale_product_variants
-#: field:sale.order.line.attribute,id:0
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute_id
 msgid "ID"
 msgstr "ID"
 
 #. module: sale_product_variants
-#: field:sale.order.line.attribute,write_uid:0
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: sale_product_variants
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute_write_uid
 msgid "Last Updated by"
-msgstr "Última actualización por"
+msgstr "Última actualización realizada por"
 
 #. module: sale_product_variants
-#: field:sale.order.line.attribute,write_date:0
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute_write_date
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr "Última actualización el"
 
 #. module: sale_product_variants
-#: field:sale.order.line.attribute,sale_line:0
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute_sale_line
 msgid "Order line"
-msgstr "Línea de pedido"
+msgstr "Línea de la orden"
 
 #. module: sale_product_variants
-#: view:sale.order.line:sale_product_variants.sale_order_line_extended_search_view
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute_possible_values
+msgid "Possible values"
+msgstr "Valores posibles"
+
+#. module: sale_product_variants
+#: model:ir.model.fields,help:sale_product_variants.field_sale_order_line_attribute_price_extra
+msgid "Price Extra: Extra price for the variant with this attribute value on sale price. eg. 200 price extra, 1000 + 200 = 1200."
+msgstr "Precio extra: Precio extra para la variante con este valor de atributo en el precio de venta. Por ejemplo, precio extra 200. Precio final variante: 1000 + 200 = 1200."
+
+#. module: sale_product_variants
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_product_template
 msgid "Product"
 msgstr "Producto"
 
 #. module: sale_product_variants
-#: field:sale.order.line,product_template:0
-msgid "Product Template"
-msgstr "Plantilla de producto"
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_product_attributes
+msgid "Product attributes"
+msgstr "Atributos del producto"
 
 #. module: sale_product_variants
-#: field:sale.order.line,product_attributes:0
-msgid "Product attributes"
-msgstr "Atributos de producto"
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_product_attributes_count
+msgid "Product attributes count"
+msgstr "Cuenta de attributos"
 
 #. module: sale_product_variants
 #: model:ir.model,name:sale_product_variants.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Línea pedido de venta"
+msgstr "Línea de Pedido de Ventas"
 
 #. module: sale_product_variants
-#: view:sale.order.line:sale_product_variants.sale_order_line_extended_search_view
-msgid "Template"
-msgstr "Plantilla"
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_order_state
+msgid "Status"
+msgstr "Estado"
 
 #. module: sale_product_variants
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_config_settings_group_product_variant_extended_description
 #: model:res.groups,name:sale_product_variants.group_product_variant_extended_description
-#: field:sale.config.settings,group_product_variant_extended_description:0
 msgid "Use extended description when having product attributes"
 msgstr "Usar descripción extendida cuando se tienen atributos de producto"
 
 #. module: sale_product_variants
-#: field:sale.order.line.attribute,value:0
+#: model:ir.model.fields,field_description:sale_product_variants.field_sale_order_line_attribute_value
 msgid "Value"
 msgstr "Valor"
 
 #. module: sale_product_variants
-#: code:addons/sale_product_variants/models/sale_order.py:180
+#: model:ir.ui.view,arch_db:sale_product_variants.sale_order_extended_form_view
+msgid "Variant"
+msgstr "Variante"
+
+#. module: sale_product_variants
+#: code:addons/sale_product_variants/models/sale_order.py:207
 #, python-format
 msgid "You can not confirm before configuring all attribute values."
 msgstr "No puede confirmar antes de configurar todos los valores de atributo."
+
+#. module: sale_product_variants
+#: model:ir.model,name:sale_product_variants.model_sale_config_settings
+msgid "sale.config.settings"
+msgstr "Configuración de las ventas"
+
+#. module: sale_product_variants
+#: model:ir.model,name:sale_product_variants.model_sale_order_line_attribute
+msgid "sale.order.line.attribute"
+msgstr "sale.order.line.attribute"
+

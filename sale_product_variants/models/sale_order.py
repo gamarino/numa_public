@@ -63,8 +63,12 @@ class ProductAttributeValueSaleLine(models.Model):
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
+    category = fields.Many2one(
+        comodel_name='product.category', string="Category",
+        readonly=True, states={'draft': [('readonly', False)],
+                               'sent': [('readonly', False)]})
     product_template = fields.Many2one(
-        comodel_name='product.template', string='Product Template',
+        comodel_name='product.template', string='Product',
         readonly=True, states={'draft': [('readonly', False)],
                                'sent': [('readonly', False)]})
     product_attributes = fields.One2many(
@@ -102,63 +106,65 @@ class SaleOrderLine(models.Model):
         return ("%s\n%s" if extended else "%s (%s)") % (name, description)
 
     @api.multi
-    def product_id_change(
-            self, pricelist, product, qty=0, uom=False, qty_uos=0,
-            uos=False, name='', partner_id=False, lang=False, update_tax=True,
-            date_order=False, packaging=False, fiscal_position=False,
-            flag=False):
-        product_obj = self.env['product.product']
-        res = super(SaleOrderLine, self).product_id_change(
-            pricelist, product, qty=qty, uom=uom, qty_uos=qty_uos, uos=uos,
-            name=name, partner_id=partner_id, lang=lang, update_tax=update_tax,
-            date_order=date_order, packaging=packaging,
-            fiscal_position=fiscal_position, flag=flag)
-        if product:
-            product = product_obj.browse(product)
-            res['value']['product_attributes'] = (
-                product._get_product_attributes_values_dict())
-            res['value']['name'] = self._get_product_description(
-                product.product_tmpl_id, product, product.attribute_value_ids)
-        return res
+    @api.onchange('category')
+    def onchange_category(self):
+        domain = {}
+        if self.category:
+            domain['category'] = [('parent_id', '=', self.category.id)]
+            domain['product_template'] = [('categ_id', 'child_of', [self.category.id])]
+        else:
+            domain['category'] = [('parent_id', '=', False)]
+            domain['product_template'] = []
+
+        return {'domain': domain}
 
     @api.multi
     @api.onchange('product_template')
     def onchange_product_template(self):
         self.ensure_one()
-        self.name = self.product_template.name
-        if not self.product_template.attribute_line_ids:
-            self.product_id = (
-                self.product_template.product_variant_ids and
-                self.product_template.product_variant_ids[0])
+        if self.product_template:
+            self.name = self.product_template.name
+            if not self.product_template.attribute_line_ids:
+                self.product_id = (
+                    self.product_template.product_variant_ids and
+                    self.product_template.product_variant_ids[0])
+            else:
+                self.product_id = False
+                self.product_uom = self.product_template.uom_id
+                self.price_unit = self.order_id.pricelist_id.with_context(
+                    {'uom': self.product_uom.id,
+                     'date': self.order_id.date_order}).template_price_get(
+                    self.product_template.id, self.product_uom_qty or 1.0,
+                    self.order_id.partner_id.id)[self.order_id.pricelist_id.id][0] if self.order_id.pricelist_id else 0.0
+            self.product_attributes = (
+                self.product_template._get_product_attributes_dict())
+            # Update taxes
+            fpos = self.order_id.fiscal_position_id
+            if not fpos:
+                fpos = self.order_id.partner_id.property_account_position_id
+            self.tax_id = fpos.map_tax(self.product_template.taxes_id)
+            return {'domain': {'product_id': [('product_tmpl_id', '=', self.product_template.id)]}}
         else:
-            self.product_id = False
-            self.product_uom = self.product_template.uom_id
-            self.product_uos = self.product_template.uos_id
-            self.price_unit = self.order_id.pricelist_id.with_context(
-                {'uom': self.product_uom.id,
-                 'date': self.order_id.date_order}).template_price_get(
-                self.product_template.id, self.product_uom_qty or 1.0,
-                self.order_id.partner_id.id)[self.order_id.pricelist_id.id]
-        self.product_attributes = (
-            self.product_template._get_product_attributes_dict())
-        # Update taxes
-        fpos = self.order_id.fiscal_position
-        if not fpos:
-            fpos = self.order_id.partner_id.property_account_position
-        self.tax_id = fpos.map_tax(self.product_template.taxes_id)
+            return {'domain': {'product_id': []}}
 
-    @api.one
+    @api.multi
     @api.onchange('product_attributes')
     def onchange_product_attributes(self):
         product_obj = self.env['product.product']
-        self.product_id = product_obj._product_find(
-            self.product_template, self.product_attributes)
-        if not self.product_id:
-            self.name = self._get_product_description(
-                self.product_template, False,
-                self.product_attributes.mapped('value'))
-        if self.product_template:
+        if self.product_template and \
+           all([at.value for at in self.product_attributes]):
+            self.product_id = product_obj._product_find(
+                self.product_template, self.product_attributes)
+            if not self.product_id:
+                self.name = self._get_product_description(
+                    self.product_template, False,
+                    self.product_attributes.mapped('value'))
+                self.product_id = product_obj.create({
+                        'product_tmpl_id': self.product_template.id,
+                        'attribute_value_ids': [(6, 0, [at.value.id for at in self.product_attributes])]
+                    })
             self.update_price_unit()
+        return False
 
     @api.multi
     def action_duplicate(self):
@@ -219,4 +225,5 @@ class SaleOrderLine(models.Model):
                     'price_extra': price_extra,
                 }).template_price_get(
                 self.product_template.id, self.product_uom_qty or 1.0,
-                self.order_id.partner_id.id)[self.order_id.pricelist_id.id]
+                self.order_id.partner_id.id)[self.order_id.pricelist_id.id][0] if self.order_id.pricelist_id else 0.0
+

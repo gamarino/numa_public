@@ -1,3 +1,0 @@
-Guidelines and Recommendations
-==============================
-

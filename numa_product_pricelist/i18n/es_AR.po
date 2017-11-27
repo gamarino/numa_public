@@ -1,0 +1,277 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* numa_certifications
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-18 16:13+0000\n"
+"PO-Revision-Date: 2016-06-18 16:13+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: numa_certifications
+#: field:numa.certificate,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: numa_certifications
+#: field:numa.certificate,alert_date:0
+msgid "Alert Date"
+msgstr "Fecha Alerta"
+
+#. module: numa_certifications
+#: field:numa.certificate,alert_users:0
+#: field:numa.certificate_type,alert_users:0
+msgid "Alert Users"
+msgstr "Mails Alerta"
+
+#. module: numa_certifications
+#: model:ir.actions.act_window,name:numa_certifications.action_certificate
+#: model:ir.ui.menu,name:numa_certifications.certificate
+#: view:numa.certificate:numa_certifications.numa_certificate_form_view
+#: view:numa.certificate:numa_certifications.numa_certificate_tree_view
+#: field:numa.certificate,name:0
+#: help:numa.certificate,name:0
+#: field:numa.certificate_dates,certificate_id:0
+msgid "Certificate"
+msgstr "Certificado"
+
+#. module: numa_certifications
+#: view:numa.certificate_dates:numa_certifications.numa_certificate_dates_form_view
+#: view:numa.certificate_dates:numa_certifications.numa_certificate_dates_search_view
+#: view:numa.certificate_dates:numa_certifications.numa_certificate_dates_tree_view
+msgid "Certificate Dates"
+msgstr "Validez Certificados"
+
+#. module: numa_certifications
+#: model:ir.ui.menu,name:numa_certifications.certifications_submenu
+#: field:res.partner,numa_certificate_ids:0
+msgid "Certifications"
+msgstr "Certificaciones"
+
+#. module: numa_certifications
+#: field:numa.certificate_type,numa_certificate_ids:0
+#: view:product.template:numa_certifications.product_template_certificate_form_view
+#: field:product.template,numa_certificate_ids:0
+#: view:res.partner:numa_certifications.partner_certificate_form_view
+msgid "Certified"
+msgstr "Certificados"
+
+#. module: numa_certifications
+#: model:ir.actions.act_window,name:numa_certifications.action_certifying_entity
+#: model:ir.ui.menu,name:numa_certifications.certifying_entity
+#: field:numa.certificate,certifying_entity_id:0
+#: field:numa.certificate_type,certifying_entity_id:0
+#: view:numa.certifying_entity:numa_certifications.numa_certifying_entity_form_view
+#: view:numa.certifying_entity:numa_certifications.numa_certifying_entity_search_view
+#: view:numa.certifying_entity:numa_certifications.numa_certifying_entity_tree_view
+#: field:numa.certifying_entity,name:0
+#: help:numa.certifying_entity,name:0
+msgid "Certifying Entity"
+msgstr "Entidad Certificante"
+
+#. module: numa_certifications
+#: field:product.template,complete_certificates:0
+#: field:res.partner,complete_certificates:0
+msgid "Complete Certificates"
+msgstr "Certificados Completos"
+
+#. module: numa_certifications
+#: field:numa.certificate,create_uid:0
+#: field:numa.certificate_dates,create_uid:0
+#: field:numa.certificate_type,create_uid:0
+#: field:numa.certifying_entity,create_uid:0
+msgid "Created by"
+msgstr "Creado"
+
+#. module: numa_certifications
+#: field:numa.certificate,create_date:0
+#: field:numa.certificate_dates,create_date:0
+#: field:numa.certificate_type,create_date:0
+#: field:numa.certifying_entity,create_date:0
+msgid "Created on"
+msgstr "Creado"
+
+#. module: numa_certifications
+#: field:numa.certificate,date_ids:0
+msgid "Dates"
+msgstr "Fechas Validez"
+
+#. module: numa_certifications
+#: field:numa.certificate,description:0
+#: field:numa.certificate_type,description:0
+#: field:numa.certifying_entity,description:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: numa_certifications
+#: field:numa.certifying_entity,entity_image:0
+msgid "Entity Image"
+msgstr "Logo"
+
+#. module: numa_certifications
+#: field:numa.certificate_dates,expiry_date:0
+msgid "Expiry Date"
+msgstr "Fech Expiración"
+
+#. module: numa_certifications
+#: field:numa.certificate_dates,certificate_file:0
+msgid "File"
+msgstr "Escaneado"
+
+#. module: numa_certifications
+#: view:numa.certificate:numa_certifications.numa_certificate_form_view
+#: view:numa.certificate_dates:numa_certifications.numa_certificate_dates_form_view
+msgid "General"
+msgstr "General"
+
+#. module: numa_certifications
+#: field:numa.certificate,id:0
+#: field:numa.certificate_dates,id:0
+#: field:numa.certificate_type,id:0
+#: field:numa.certifying_entity,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: numa_certifications
+#: selection:numa.certificate,state:0
+msgid "In Process"
+msgstr "En Trámite"
+
+#. module: numa_certifications
+#: help:numa.certifying_entity,description:0
+msgid "Input a description to Certifying Entitye"
+msgstr "Ingrese una descripción para la Entidad Certificante"
+
+#. module: numa_certifications
+#: help:numa.certificate_type,description:0
+msgid "Input a description to Type Certificate"
+msgstr "Ingrese una descripción para el Tipo de Certificado"
+
+#. module: numa_certifications
+#: help:numa.certificate,description:0
+msgid "Input a description to serial number"
+msgstr "Ingrese una descripción para el Número de Serie"
+
+#. module: numa_certifications
+#: field:numa.certificate,write_uid:0
+#: field:numa.certificate_dates,write_uid:0
+#: field:numa.certificate_type,write_uid:0
+#: field:numa.certifying_entity,write_uid:0
+msgid "Last Updated by"
+msgstr "Modificado"
+
+#. module: numa_certifications
+#: field:numa.certificate,write_date:0
+#: field:numa.certificate_dates,write_date:0
+#: field:numa.certificate_type,write_date:0
+#: field:numa.certifying_entity,write_date:0
+msgid "Last Updated on"
+msgstr "Ultima modificación"
+
+#. module: numa_certifications
+#: field:numa.certificate,level:0
+msgid "Level"
+msgstr "Nivel"
+
+#. module: numa_certifications
+#: selection:numa.certificate,level:0
+msgid "Mandatory"
+msgstr "Obligatorio"
+
+#. module: numa_certifications
+#: field:numa.certificate,note:0
+#: field:numa.certificate_dates,note:0
+#: field:numa.certificate_type,note:0
+#: field:numa.certifying_entity,note:0
+msgid "Note"
+msgstr "Notas"
+
+#. module: numa_certifications
+#: selection:numa.certificate,level:0
+msgid "Optional"
+msgstr "Opcional"
+
+#. module: numa_certifications
+#: selection:numa.certificate,state:0
+msgid "Original"
+msgstr "Original"
+
+#. module: numa_certifications
+#: model:ir.model,name:numa_certifications.model_res_partner
+#: field:numa.certificate,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: numa_certifications
+#: model:ir.model,name:numa_certifications.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: numa_certifications
+#: view:numa.certificate:numa_certifications.numa_certificate_form_view
+#: field:numa.certificate,product_tmpl_ids:0
+msgid "Products"
+msgstr "Productos"
+
+#. module: numa_certifications
+#: field:numa.certificate_dates,name:0
+msgid "Record"
+msgstr "Expediente"
+
+#. module: numa_certifications
+#: selection:numa.certificate,state:0
+msgid "Renewal"
+msgstr "Renovación"
+
+#. module: numa_certifications
+#: field:numa.certificate_dates,start_date:0
+msgid "Start Date"
+msgstr "Fecha Inicio"
+
+#. module: numa_certifications
+#: code:addons/numa_certifications/numa_certifications.py:135
+#, python-format
+msgid "Start Date can not be greater then Expiry Date"
+msgstr "Fecha de Inicio no debe ser mayor que Fecha Expiración"
+
+#. module: numa_certifications
+#: field:numa.certificate,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: numa_certifications
+#: model:ir.actions.act_window,name:numa_certifications.action_certificate_type
+#: model:ir.ui.menu,name:numa_certifications.certificate_type
+#: view:numa.certificate:numa_certifications.numa_certificate_search_view
+#: field:numa.certificate,certificate_type_id:0
+#: view:numa.certificate_type:numa_certifications.numa_certificate_type_form_view
+#: view:numa.certificate_type:numa_certifications.numa_certificate_type_search_view
+#: view:numa.certificate_type:numa_certifications.numa_certificate_type_tree_view
+#: field:numa.certificate_type,name:0
+#: help:numa.certificate_type,name:0
+msgid "Type Certificate"
+msgstr "Tipo de Certificado"
+
+#. module: numa_certifications
+#: field:numa.certificate_type,certificate_type_image:0
+msgid "Type Certificate Type Image"
+msgstr "Logo"
+
+#. module: numa_certifications
+#: field:numa.certifying_entity,numa_certificate_type_ids:0
+msgid "Type Certificates"
+msgstr "Tipo de Certificados"
+
+#. module: numa_certifications
+#: code:addons/numa_certifications/numa_certifications.py:135
+#, python-format
+msgid "Warning!"
+msgstr "Aviso!"
+

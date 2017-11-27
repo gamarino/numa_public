@@ -1,0 +1,576 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* numa_dbsynch_remote
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-28 20:53+0000\n"
+"PO-Revision-Date: 2017-02-28 20:53+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+msgid "Abort synchronization"
+msgstr "Abortar sincronización"
+
+#. module: numa_dbsynch_remote
+#: selection:dbsynch.remote_server,state:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_mapping,base_vals:0
+msgid "Base values"
+msgstr "Valores base"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:935
+#, python-format
+msgid "Collectiong local changes since last synch"
+msgstr "Recolectando cambios locales desde la última sincronización"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:888
+#, python-format
+msgid "Collectiong local changes since last synch (%d/%d)"
+msgstr "Recolectando cambios locales desde la última sincronización (%d/%d)"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.local_object,create_uid:0
+#: field:dbsynch.remote_mapping,create_uid:0
+#: field:dbsynch.remote_object,create_uid:0
+#: field:dbsynch.remote_server,create_uid:0
+#: field:dbsynch.remote_shared_field,create_uid:0
+#: field:dbsynch.remote_shared_model,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.local_object,create_date:0
+#: field:dbsynch.remote_mapping,create_date:0
+#: field:dbsynch.remote_object,create_date:0
+#: field:dbsynch.remote_server,create_date:0
+#: field:dbsynch.remote_shared_field,create_date:0
+#: field:dbsynch.remote_shared_model,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:311
+#, python-format
+msgid "DBSYNCH %s"
+msgstr "DBSYNCH %s"
+
+#. module: numa_dbsynch_remote
+#: model:ir.ui.menu,name:numa_dbsynch_remote.dbsynch_remote_submenu
+msgid "DBSynch Remote"
+msgstr "DBSynch Remoto"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.local_object,display_name:0
+#: field:dbsynch.remote_mapping,display_name:0
+#: field:dbsynch.remote_object,display_name:0
+#: field:dbsynch.remote_server,display_name:0
+#: field:dbsynch.remote_shared_field,display_name:0
+#: field:dbsynch.remote_shared_model,display_name:0
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_shared_model,no_upload:0
+msgid "Do not upload"
+msgstr "No subir"
+
+#. module: numa_dbsynch_remote
+#: selection:dbsynch.remote_server,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: numa_dbsynch_remote
+#: sql_constraint:dbsynch.remote_shared_field:0
+msgid "Each field could only be specified once per model!"
+msgstr "Cada campo debe ser especificado solo una vez!"
+
+#. module: numa_dbsynch_remote
+#: sql_constraint:dbsynch.remote_shared_model:0
+msgid "Each model could be selected only once per remote server!"
+msgstr "Cada model puedes ser seleccionado solo una vez por servidor remoto!"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:426
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:429
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:486
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:548
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:559
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:569
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:581
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:736
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:755
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:819
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:832
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:839
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:923
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:926
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:975
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:988
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:1004
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:430
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:927
+#, python-format
+msgid "Error in MASTER command execution: %s"
+msgstr "Error en la ejecución de comandos en MASTER: %s"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:427
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:924
+#, python-format
+msgid "Error in MASTER: no data received"
+msgstr "Error en MASTER: no se recibieron datos"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:976
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:989
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:1005
+#, python-format
+msgid "Expecting remote id for model %s, local instance %d, but no info found! Please contact your System Administrator"
+msgstr "No se pudo recuperar el ID remote del modelo %s, instancia local %d! Por favor contacte a su administrador de sistema"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_shared_model:numa_dbsynch_remote.dbsynch_remote_model_form
+msgid "Fields"
+msgstr "Campos"
+
+#. module: numa_dbsynch_remote
+#: help:dbsynch.remote_server,local_changes_since:0
+msgid "For the next synch, consider local changes from here on"
+msgstr "Marca de tiempo a partir de la cual se enviaran cambios en la próxima sincronizacióñ"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_shared_model:numa_dbsynch_remote.dbsynch_remote_mapping_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.local_object,id:0
+#: field:dbsynch.remote_mapping,id:0
+#: field:dbsynch.remote_object,id:0
+#: field:dbsynch.remote_server,id:0
+#: field:dbsynch.remote_shared_field,id:0
+#: field:dbsynch.remote_shared_model,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.local_object,__last_update:0
+#: field:dbsynch.remote_mapping,__last_update:0
+#: field:dbsynch.remote_object,__last_update:0
+#: field:dbsynch.remote_server,__last_update:0
+#: field:dbsynch.remote_shared_field,__last_update:0
+#: field:dbsynch.remote_shared_model,__last_update:0
+msgid "Last Modified on"
+msgstr "Ultima modificación el"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.local_object,write_uid:0
+#: field:dbsynch.remote_mapping,write_uid:0
+#: field:dbsynch.remote_object,write_uid:0
+#: field:dbsynch.remote_server,write_uid:0
+#: field:dbsynch.remote_shared_field,write_uid:0
+#: field:dbsynch.remote_shared_model,write_uid:0
+msgid "Last Updated by"
+msgstr "Ultima modificación por"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.local_object,write_date:0
+#: field:dbsynch.remote_mapping,write_date:0
+#: field:dbsynch.remote_object,write_date:0
+#: field:dbsynch.remote_server,write_date:0
+#: field:dbsynch.remote_shared_field,write_date:0
+#: field:dbsynch.remote_shared_model,write_date:0
+msgid "Last Updated on"
+msgstr "Ultima modificacióñ el"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,synch_error:0
+msgid "Last synch error msg"
+msgstr "Msg. de error última sinc."
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,last_synched_on:0
+msgid "Last synch on"
+msgstr "Ultima sinc. el"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_mapping,synch_timestamp:0
+msgid "Last synch timestamp"
+msgstr "Fecha y hora última sinc."
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_mapping,local_id:0
+msgid "Local ID"
+msgstr "ID Local"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,local_changes_since:0
+msgid "Local changes since"
+msgstr "Cambios locales desde"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+msgid "Local objects"
+msgstr "Objetos locales"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_mapping,local_modified_vals:0
+msgid "Locally modified values since last synch"
+msgstr "Valores modificados localmente desde el último sinc."
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_mapping:numa_dbsynch_remote.dbsynch_remote_mapping_form
+msgid "Mapping"
+msgstr "Mapeo"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+msgid "Mappings"
+msgstr "Mapeos"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:461
+#, python-format
+msgid "Master data received. Updating local DB"
+msgstr "Se recibieron actualizaciones del Maestro, Actualizando la BD local"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:649
+#, python-format
+msgid "Master data received. Updating local DB. (%d/%d)"
+msgstr "Actualizando la BD local (%d/%d)"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+msgid "Master objects"
+msgstr "Objetos Maestros"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_shared_model:numa_dbsynch_remote.dbsynch_remote_mapping_search
+msgid "Master server"
+msgstr "Servidor maestro"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,master_type:0
+msgid "Master type"
+msgstr "Tipo de maestro"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_shared_field,shared_model:0
+msgid "Model"
+msgstr "Modelo"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+msgid "Model Rules"
+msgstr "Reglas de modelos"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_mapping,model:0
+msgid "Model name"
+msgstr "Nombre del modelo"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:1174
+#, python-format
+msgid "Model rules for for %s"
+msgstr "Reglas de modelo para %s"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,shared_models:0
+msgid "Models shared with Master"
+msgstr "Modelos compartidos con el Maestro"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:487
+#, python-format
+msgid "No model found for name %s, remote id %d! Please check modules and setup"
+msgstr "No se encontró el modelo con nombre %s, ID remoto %d! Por favor verificar módulos y setup"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:300
+#, python-format
+msgid "Normal"
+msgstr "Normal"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+msgid "Objects FROM Master"
+msgstr "Objetos del Maestro"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+msgid "Objects to UPLOAD"
+msgstr "Objetos a subir al Maestro"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,master_objects:0
+msgid "Objects to be asked to Master"
+msgstr "Objectos a ser pedidos al maestro"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,local_objects:0
+msgid "Objects to be sent to Master"
+msgstr "Objetos a ser enviados al maestro"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.local_object,model:0
+#: field:dbsynch.remote_object,model:0
+#: field:dbsynch.remote_shared_model,model:0
+msgid "Odoo Model"
+msgstr "Modelo Odoo"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_shared_field,field:0
+msgid "Odoo Model Field"
+msgstr "Campo del  modelo Odoo"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:549
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:560
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:570
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:582
+#, python-format
+msgid "On model %s, remote id %d could not be mapped to a local instance!"
+msgstr "En el modelo %s, ID remoto %d no puede ser mapeado al una instancia local!"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:833
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:840
+#, python-format
+msgid "Recursion error on model %s, instance %d, %s field %s, relation model %s, relation instance %d! Please check DBSynch Master configuration"
+msgstr "Error de recursión en el modelo %s, instancia %d, %s campo %s, modelo de relación %s, instancia de relación %d! Por favor verificar la configuración"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:737
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:756
+#, python-format
+msgid "Recursion error on model %s, instance %d, REQUIRED many2one field %s, relation model %s, relation instance %d! Please check DBSynch Master configuration"
+msgstr "Error de recursión en el modelo %s, instancia %d, campo REQUERIDO %s, modelo de relación %s, instancia de relación %d! Por favor verificar la configuración"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:820
+#, python-format
+msgid "Recursion error on model %s, instance %d, many2one field %s, relation model %s, relation instance %d! Please check DBSynch Master configuration"
+msgstr "Error de recursión en el modelo %s, instancia %d, campo many2one %s, modelo de relación %s, instancia de relación %d! Por favor verificar la configuración"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+msgid "Refresh status"
+msgstr "Refrescar el estado"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,remote_dbname:0
+msgid "Remote DB name"
+msgstr "Nombre de la BD remota"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_mapping,remote_id:0
+msgid "Remote ID"
+msgstr "ID Remoto"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_shared_model:numa_dbsynch_remote.dbsynch_remote_model_form
+msgid "Remote Model"
+msgstr "Modelo remoto"
+
+#. module: numa_dbsynch_remote
+#: model:ir.actions.act_window,name:numa_dbsynch_remote.dbsynch_remote_model_action
+#: model:ir.ui.menu,name:numa_dbsynch_remote.dbsynch_remote_model_menu
+msgid "Remote Model Rules"
+msgstr "Reglas de modelos remotos"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_shared_model:numa_dbsynch_remote.dbsynch_remote_shared_model_tree
+msgid "Remote Models"
+msgstr "Modelos remotos"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.local_object,remote_server:0
+#: field:dbsynch.remote_mapping,remote_server:0
+#: field:dbsynch.remote_object,remote_server:0
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+#: field:dbsynch.remote_shared_model,remote_server:0
+msgid "Remote Server"
+msgstr "Server remoto"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_servers_tree
+#: model:ir.actions.act_window,name:numa_dbsynch_remote.dbsynch_remote_server_action
+#: model:ir.ui.menu,name:numa_dbsynch_remote.dbsynch_remote_server_menu
+msgid "Remote Servers"
+msgstr "Servers remotos"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_mapping:numa_dbsynch_remote.dbsynch_remote_mapping_tree
+#: view:dbsynch.remote_shared_model:numa_dbsynch_remote.dbsynch_remote_mapping_search
+msgid "Remote Servers Mappings"
+msgstr "Mapeos de servidores remotos"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,url:0
+msgid "Remote URL"
+msgstr "URL remoto"
+
+#. module: numa_dbsynch_remote
+#: help:dbsynch.remote_server,url:0
+msgid "Remote URL, including protocol, address and port"
+msgstr "URL remoto, incluyendo protocolo, dirección y puerta"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,mappings:0
+msgid "Remote instances Mapping"
+msgstr "Mapeos de instancias remotas"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,login:0
+msgid "Remote login"
+msgstr "Login remoto"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:1160
+#, python-format
+msgid "Remote mappings for %s"
+msgstr "Mapeos remotos para %s"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,name:0
+msgid "Remote name"
+msgstr "Nombre remoto"
+
+#. module: numa_dbsynch_remote
+#: sql_constraint:dbsynch.remote_server:0
+msgid "Remote name should be unique!"
+msgstr "El nombre remoto debe ser único!"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,password:0
+msgid "Remote password"
+msgstr "Password remoto"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.local_object,selection:0
+#: field:dbsynch.remote_object,selection:0
+msgid "Selection expression"
+msgstr "Expresión ODOO de selección"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:944
+#, python-format
+msgid "Sending local changes to Master"
+msgstr "Enviando cambios locales al maestro"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:1035
+#, python-format
+msgid "Sending local changes to Master. Step %d/%d, offset %d"
+msgstr "Enviando cambios locales al maestro. Paso %d/%d, offset %d"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.local_object,sequence:0
+#: field:dbsynch.remote_object,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+msgid "Set ACTIVE"
+msgstr "Fijar ACTIVE"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_shared_model,shared_fields:0
+msgid "Shared fields"
+msgstr "Campor compartidos"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:436
+#, python-format
+msgid "Starting synching"
+msgstr "Comienzo sincronización"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+msgid "Suspend"
+msgstr "Suspender"
+
+#. module: numa_dbsynch_remote
+#: selection:dbsynch.remote_server,state:0
+msgid "Suspended"
+msgstr "Suspendido"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:1095
+#, python-format
+msgid "Synch Complete"
+msgstr "Sincronización completa"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,synch_completion_rate:0
+msgid "Synch completion rate"
+msgstr "Tasa de ejecución sinc."
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,synch_current_status:0
+msgid "Synch current status"
+msgstr "Estado actual de sinc."
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,synch_job:0
+msgid "Synch job"
+msgstr "Tarea de sincronización"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,synch_state:0
+msgid "Synch state"
+msgstr "Estado de sinc."
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,synch_ended_on:0
+msgid "Synched ended on"
+msgstr "Sincronición terminada el"
+
+#. module: numa_dbsynch_remote
+#: field:dbsynch.remote_server,synch_on:0
+msgid "Synched on"
+msgstr "Sincronizado el"
+
+#. module: numa_dbsynch_remote
+#: selection:dbsynch.remote_server,state:0
+msgid "Synching"
+msgstr "Sincronizando"
+
+#. module: numa_dbsynch_remote
+#: view:dbsynch.remote_server:numa_dbsynch_remote.dbsynch_remote_server_form
+msgid "Synchronize"
+msgstr "Sincronizar"
+
+#. module: numa_dbsynch_remote
+#: code:addons/numa_dbsynch_remote/models/dbsynch_remote.py:1041
+#, python-format
+msgid "Updating master created objects references"
+msgstr "Actualizando referencias creadas por el maestro"
+

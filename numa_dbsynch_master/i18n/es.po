@@ -1,0 +1,154 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* numa_dbsynch_master
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-28 20:45+0000\n"
+"PO-Revision-Date: 2017-02-28 20:45+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.shared_field,create_uid:0
+#: field:dbsynch.shared_model,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.shared_field,create_date:0
+#: field:dbsynch.shared_model,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: numa_dbsynch_master
+#: model:ir.ui.menu,name:numa_dbsynch_master.dbsynch_master_submenu
+msgid "DBSynch Master"
+msgstr "DBSynch Master"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.server,display_name:0
+#: field:dbsynch.shared_field,display_name:0
+#: field:dbsynch.shared_model,display_name:0
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.shared_model,no_upload:0
+msgid "Do not upload"
+msgstr "No subir"
+
+#. module: numa_dbsynch_master
+#: sql_constraint:dbsynch.shared_field:0
+msgid "Each field could only be specified once!"
+msgstr "Cada campo debe ser especificado solo una vez!"
+
+#. module: numa_dbsynch_master
+#: sql_constraint:dbsynch.shared_model:0
+msgid "Each model could be selected only once!"
+msgstr "Cada modelo debe ser elegido solo una vez!"
+
+#. module: numa_dbsynch_master
+#: code:addons/numa_dbsynch_master/models/dbsynch_master.py:258
+#: code:addons/numa_dbsynch_master/models/dbsynch_master.py:313
+#: code:addons/numa_dbsynch_master/models/dbsynch_master.py:321
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: numa_dbsynch_master
+#: view:dbsynch.shared_model:numa_dbsynch_master.dbsynch_master_model_form
+msgid "Fields"
+msgstr "Campos"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.server,id:0
+#: field:dbsynch.shared_field,id:0
+#: field:dbsynch.shared_model,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.server,__last_update:0
+#: field:dbsynch.shared_field,__last_update:0
+#: field:dbsynch.shared_model,__last_update:0
+msgid "Last Modified on"
+msgstr "Ultima modificación el"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.shared_field,write_uid:0
+#: field:dbsynch.shared_model,write_uid:0
+msgid "Last Updated by"
+msgstr "Ultima modificación por"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.shared_field,write_date:0
+#: field:dbsynch.shared_model,write_date:0
+msgid "Last Updated on"
+msgstr "Ultima modificación el"
+
+#. module: numa_dbsynch_master
+#: help:dbsynch.shared_model,shared_fields:0
+msgid "List of allowed fields to be synched. If empty, all fields will be synched"
+msgstr "Lista de campos permitidos para sincronizar. Si está vacio, todos los campos serán sincronizados"
+
+#. module: numa_dbsynch_master
+#: view:dbsynch.shared_model:numa_dbsynch_master.dbsynch_master_model_form
+msgid "Master Model"
+msgstr "Modelo master"
+
+#. module: numa_dbsynch_master
+#: view:dbsynch.shared_model:numa_dbsynch_master.dbsynch_master_model_tree
+msgid "Master Models"
+msgstr "Modelos master"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.shared_field,shared_model:0
+msgid "Model"
+msgstr "Modelo"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.shared_model,model:0
+msgid "Odoo Model"
+msgstr "Modelo Odoo"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.shared_field,field:0
+msgid "Odoo Model Field"
+msgstr "Campo de modelo Odoo"
+
+#. module: numa_dbsynch_master
+#: code:addons/numa_dbsynch_master/models/dbsynch_master.py:322
+#, python-format
+msgid "Recursion error on model %s, instance %d, %s field %s, relation model %s, relation instance %d! Please check DBSynch Master configuration"
+msgstr "Error de recursión en el modelo %s, instancia %d, %s campo %s, modelo de relación %s, instancia de relación %d! Por favor verificar la configuración"
+
+#. module: numa_dbsynch_master
+#: code:addons/numa_dbsynch_master/models/dbsynch_master.py:259
+#, python-format
+msgid "Recursion error on model %s, instance %d, REQUIRED many2one field %s, relation model %s, relation instance %d! Please check DBSynch Master configuration"
+msgstr "Error de recursión en el modelo %s, instancia %d, campo REQUERIDO %s, modelo de relación %s, instancia de relación %d! Por favor verificar la configuración"
+
+#. module: numa_dbsynch_master
+#: code:addons/numa_dbsynch_master/models/dbsynch_master.py:314
+#, python-format
+msgid "Recursion error on model %s, instance %d, many2one field %s, relation model %s, relation instance %d! Please check DBSynch Master configuration"
+msgstr "Error de recursión en el modelo %s, instancia %d, campo many2one %s, modelo de relación %s, instancia de relación %d! Por favor verificar la configuración"
+
+#. module: numa_dbsynch_master
+#: field:dbsynch.shared_model,shared_fields:0
+msgid "Shared fields"
+msgstr "Campos compartidos"
+
+#. module: numa_dbsynch_master
+#: model:ir.actions.act_window,name:numa_dbsynch_master.dbsynch_master_model_action
+#: model:ir.ui.menu,name:numa_dbsynch_master.dbsynch_master_model_menu
+msgid "Synchronized Models"
+msgstr "Modelos a sincronizar"
+

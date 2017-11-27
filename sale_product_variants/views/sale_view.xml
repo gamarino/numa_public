@@ -10,10 +10,6 @@
                 <xpath expr="//field[@name='order_line']/tree" position="attributes">
                     <attribute name="editable"/>
                 </xpath>
-                <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']"
-                       position="before">
-                    <field name="product_template" />
-                </xpath>
                 <xpath expr="//field[@name='order_line']/tree//field[@name='price_subtotal']"
                        position="after">
                     <field name="order_state" invisible="1"/>
@@ -21,12 +17,14 @@
                             state="draft"
                             string="Duplicate"
                             type="object"
-                            icon="STOCK_COPY"
+                            icon="fa-clone"
                             attrs="{'invisible': [('order_state', 'not in', ['draft', 'sent'])]}"
                             help="Duplicate line" />
                 </xpath>
                 <xpath expr="//field[@name='order_line']/form//field[@name='product_id']"
                        position="before">
+                    <field name="order_state" invisible="1"/>
+                    <field name="category" />
                     <field name="product_template" />
                     <field name="product_attributes_count" invisible="1"/>
                     <div colspan="4"
@@ -52,59 +50,16 @@
                             class="oe_edit_only oe_link" colspan="2"
                             attrs="{'invisible':[('product_id','!=',False)]}"/>
                 </xpath>
+                <xpath expr="//field[@name='order_line']//form//field[@name='product_id']"
+                       position="attributes">
+                    <attribute name="nolabel" >1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//form//field[@name='product_id']"
+                       position="before">
+                    <label string="Variant"/>
+                </xpath>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="sale_order_line_extended_form_view">
-            <field name="name">sale.order.line.extended.form</field>
-            <field name="model">sale.order.line</field>
-            <field name="inherit_id" ref="sale.view_order_line_form2" />
-            <field name="arch" type="xml">
-                <field name="product_id" position="before">
-                    <field name="product_template" />
-                </field>
-                <field name="name" position="after">
-                    <label for="product_attributes" />
-                    <field name="product_attributes"
-                        attrs="{'invisible': [('product_attributes','=',[])]}"
-                        options="{'no_create': True, 'no_delete': True}">
-                        <tree create="0" delete="0" editable="1">
-                            <field name="attribute" />
-                            <field name="value" />
-                            <field name="price_extra" readonly="True" />
-                        </tree>
-                    </field>
-                </field>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="sale_order_line_extended_tree_view">
-            <field name="name">sale.order.line.extended.tree</field>
-            <field name="model">sale.order.line</field>
-            <field name="inherit_id" ref="sale.view_order_line_tree" />
-            <field name="arch" type="xml">
-                <field name="name" position="after">
-                    <field name="product_template" />
-                    <field name="product_id" />
-                </field>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="sale_order_line_extended_search_view">
-            <field name="name">sale.order.line.extended.search</field>
-            <field name="model">sale.order.line</field>
-            <field name="inherit_id" ref="sale.view_sales_order_line_filter" />
-            <field name="arch" type="xml">
-                <field name="product_id" position="after">
-                    <field name="product_template" />
-                </field>
-                <filter string="Product" position="after">
-                    <filter string="Template"
-                            icon="terp-accessories-archiver"
-                            domain="[]"
-                            context="{'group_by':'product_template'}" />
-                </filter>
-            </field>
-        </record>
     </data>
 </openerp>

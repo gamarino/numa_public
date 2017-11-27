@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="product_pricelist_view_tree" model="ir.ui.view">
+            <field name="name">Pricelist with for_sale and for purchase</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view_tree" />
+            <field name="arch" type="xml">
+                <field name="currency_id" position="after" >
+                    <field name="for_sale" />
+                    <field name="for_purchase" />
+                </field>
+            </field>
+        </record>
+
+        <record id="product_pricelist_view" model="ir.ui.view">
+            <field name="name">Pricelist with for_sale and for purchase</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view" />
+            <field name="arch" type="xml">
+                <field name="currency_id" position="after" >
+                    <field name="for_sale" />
+                    <field name="for_purchase" />
+                </field>
+            </field>
+        </record>
+
+        <record id="product.product_pricelist_action2" model="ir.actions.act_window">
+            <field name="context">{"default_base":'list_price', 'default_for_sale': True, "search_default_for_sale":True}</field>
+        </record>
+
+        <record model="ir.ui.view" id="product_pricelist_view_search">
+            <field name="name">Product pricelist search with for_sale and for_purchase</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view_search" />
+            <field name="arch" type="xml">
+                <field name="currency_id" position="after">
+                    <filter string="For Sale" name="for_sale" domain="[('for_sale','=',True)]"/>
+                    <filter string="For Purchase" name="for_purchase" domain="[('for_purchase','=',True)]"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="supplier_pricelist_action" model="ir.actions.act_window">
+            <field name="name">SupplierPricelists</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.pricelist</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="product_pricelist_view_search" />
+            <field name="context">{"default_base":'supplier_list', "default_for_sale": False, "default_for_purchase": True, "search_default_for_purchase": True}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a pricelist for a supplier.
+              </p><p>
+                A price list contains rules to be evaluated in order to compute
+                the standard price of the products for a supplier. You must assign
+                this list to supplier partner in order to be used on purchase orders
+              </p><p>
+                Each rule include a set of applicability criteria (date range,
+                product category...) and a computation that easily helps to achieve
+                any kind of pricing.
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+             id="supplier_pricelist_menu"
+             action="supplier_pricelist_action"
+             parent="purchase.menu_purchase_config"
+             sequence="5"/>
+
+        <record id="product_supplierinfo_tree_view" model="ir.ui.view">
+            <field name="name">product.supplierinfo.tree.view</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
+            <field name="arch" type="xml">
+                <field name="min_qty" position="after" >
+                    <field name="product_uom" />
+                </field>
+                <field name="price" position="after" >
+                    <field name="currency_id" />
+                </field>
+            </field>
+        </record>
+
+
+
+</odoo>

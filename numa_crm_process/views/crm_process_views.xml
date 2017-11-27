@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="crm_process_tree" model="ir.ui.view">
+        <field name="name">CRM Process tree</field>
+        <field name="model">crm.process</field>
+        <field name="arch" type="xml">
+            <tree string="CRM Processes">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_process_form" model="ir.ui.view">
+        <field name="name">CRM Process form</field>
+        <field name="model">crm.process</field>
+        <field name="arch" type="xml">
+            <form string="CRM Process">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Process"/>
+                        <h1><field name="name" placeholder="Describe the process..."/></h1>
+                    </div>
+                    <group>
+                        <field name="stages" colspan="4" nolabel="True" >
+                            <tree string="Stages" editable="bottom">
+                                <field name="stage" />
+                                <field name="conditions" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="crm_process_action">
+        <field name="name">CRM Processes</field>
+        <field name="res_model">crm.process</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="view_id" ref="crm_process_tree"/>
+        <field name="help" type="html">
+            <p>
+                Use Processes to design a stage path for your leads
+            </p><p>
+                Once qualified, the lead can be converted into a business
+                opportunity and/or a new customer in your address book.
+            </p>
+        </field>
+    </record>
+
+    <record id="crm_process_stage_tree" model="ir.ui.view">
+        <field name="name">CRM Process/Stage relation tree</field>
+        <field name="model">crm.process_stage</field>
+        <field name="arch" type="xml">
+            <tree string="CRM Processes" editable="bottom">
+                <field name="process"/>
+                <field name="stage"/>
+                <field name="conditions"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_process_stage_search" model="ir.ui.view">
+        <field name="name">CRM Process/Stage relation search</field>
+        <field name="model">crm.process_stage</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field name="process" />
+                <field name="stage" />
+                <group expand="0" string="Group By">
+                    <filter string="Process" name="groupby_process" domain="[]" context="{'group_by':'process'}"/>
+                    <filter string="Stage" name="groupby_stage" domain="[]" context="{'group_by':'stage'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="crm_process_stage_action">
+        <field name="name">CRM Processes/Stages</field>
+        <field name="res_model">crm.process_stage</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="crm_process_stage_tree"/>
+        <field name="search_view_id" ref="crm_process_stage_search"/>
+    </record>
+
+    <record id="crm_case_form_view_oppor" model="ir.ui.view">
+        <field name="name">crm.lead.form.opportunity</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="stage_id" position="attributes" >
+                    <attribute name="domain" >[('processes.process','=',process)]</attribute>
+                </field>
+                <label for="name" position="before" >
+                    <h2>
+                        <field name="process" placeholder="Process..." widget="selection"/>
+                    </h2>
+                </label>
+                <notebook position="inside">
+                    <page name="log" string="History" >
+                        <field name="log_history"
+                               colspan="4"
+                               reandonly="True"
+                               nolabel="True" >
+                            <tree string="Stage changes" >
+                                <field name="process" />
+                                <field name="stage" />
+                                <field name="when" />
+                                <field name="til" />
+                                <field name="changed_by" />
+                                <field name="active_flag" />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </data>
+        </field>
+    </record>
+
+    <record id="view_create_opportunity_simplified" model="ir.ui.view">
+        <field name="name">CRM Opportunity simplified form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_create_opportunity_simplified"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="name" position="before" >
+                    <field name="process" />
+                    <newline />
+                </field>
+            </data>
+        </field>
+    </record>
+
+    <record id="crm_case_tree_view_oppor" model="ir.ui.view">
+        <field name="name">crm.lead.tree.opportunity</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="stage_id" position="before" >
+                    <field name="process" />
+                </field>
+            </data>
+        </field>
+    </record>
+
+    <record id="view_crm_case_opportunities_filter" model="ir.ui.view">
+        <field name="name">Leads with process search</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="user_id" position="after">
+                    <field name="process" />
+                </field>
+                <filter name="stage" position="after">
+                    <filter name="process" string="Process" context="{'group_by':'process'}"/>
+                </filter>
+            </data>
+        </field>
+    </record>
+
+    <record id="crm_case_kanban_view_leads" model="ir.ui.view">
+        <field name="name">crm.lead.kanban.lead</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="user_id" position="after">
+                    <field name="process" />
+                </field>
+                <xpath expr="//div/strong/field[@name='name']" position="before">
+                    <p><i>
+                        <field name="process" /> - <field name="stage_id" />
+                    </i></p>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="crm_opportunity_report_view_search" model="ir.ui.view">
+        <field name="name">crm.opportunity.report.select</field>
+        <field name="model">crm.opportunity.report</field>
+        <field name="inherit_id" ref="crm.crm_opportunity_report_view_search"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="stage_id" position="before">
+                    <field name="process" widget="selection"/>
+                </field>
+                <xpath expr="//group[@expand='1']" position="inside">
+                    <filter string="Process" name="process" context="{'group_by':'process'}"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="show_funnel_form" model="ir.ui.view">
+        <field name="name">CRM Show Funnel form</field>
+        <field name="model">crm.show_funnel</field>
+        <field name="arch" type="xml">
+            <form string="Show Opportunity funnel" create="false" >
+                <header>
+                    <field name="state" widget="statusbar" nolabel="1"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Selection" >
+                            <field name="from_date" />
+                            <field name="til_date" />
+                        </group>
+                        <group string="Output data"
+                               attrs="{'invisible': [('state','!=','generated')]}">
+                            <field name="export_name" invisible="True" />
+                            <field name="export_data" filename="export_name" readonly="True"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_compute"
+                            type="object"
+                            colspan="2"
+                            attrs="{'invisible': [('state','!=','initial')]}"
+                            string="Compute funnel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window
+        id="show_funnel_from_leads"
+        name="Show funnel"
+        view_mode="form"
+        multi="True"
+        target="new"
+        key2="client_action_multi"
+        res_model="crm.show_funnel"
+        src_model="crm.lead"/>
+
+</odoo>

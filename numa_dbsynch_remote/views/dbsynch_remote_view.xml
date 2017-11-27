@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <menuitem name="DBSynch Remote" 
+                  parent="base.menu_administration" 
+                  id="dbsynch_remote_submenu"/>
+
+        <record model="ir.ui.view" id="dbsynch_remote_mapping_tree">
+            <field name="name">NUMA DBSynch Mappings tree</field>
+            <field name="model">dbsynch.remote_mapping</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Remote Servers Mappings">
+                    <field name="remote_server"/>
+                    <field name="model"/>
+                    <field name="remote_id"/>
+                    <field name="local_id"/>
+                    <field name="synch_timestamp"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dbsynch_remote_mapping_form">
+            <field name="name">NUMA DBSynch Remote Server form</field>
+            <field name="model">dbsynch.remote_mapping</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Mapping" >
+                    <group>
+                        <field name="remote_server"/>
+                        <field name="model"/>
+                        <field name="remote_id"/>
+                        <field name="local_id"/>
+                        <field name="synch_timestamp"/>
+                        <field name="base_vals"/>
+                        <field name="local_modified_vals"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dbsynch_remote_mapping_search">
+            <field name="name">NUMA DBSynch Mappings search</field>
+            <field name="model">dbsynch.remote_mapping</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Remote Servers Mappings">
+                    <field name="remote_server"/>
+                    <field name="model"/>
+                    <field name="remote_id"/>
+                    <field name="local_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Master server" context="{'group_by': 'remote_server'}"/>
+                        <filter string="Model" context="{'group_by': 'model'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dbsynch_remote_servers_tree">
+            <field name="name">NUMA DBSynch Mappings tree</field>
+            <field name="model">dbsynch.remote_server</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Remote Servers">
+                    <field name="name"/>
+                    <field name="url"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dbsynch_remote_server_form">
+            <field name="name">NUMA DBSynch Remote Server form</field>
+            <field name="model">dbsynch.remote_server</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Remote Server" >
+                    <header>
+                        <button name="action_synch" 
+                                type="object" 
+                                states="active"
+                                string="Synchronize" />
+                        <button name="action_abort_synch" 
+                                type="object"
+                                states="synching"
+                                string="Abort synchronization" />
+                        <button name="action_refresh"
+                                type="object"
+                                states="synching"
+                                string="Refresh status" />
+
+                        <button name="action_set_active"
+                                type="object"
+                                states="draft,suspended"
+                                string="Set ACTIVE" />
+                        <button name="action_suspend"
+                                type="object"
+                                states="active"
+                                string="Suspend" />
+
+                        <button name="action_get_mappings"
+                                type="object"
+                                states="active,suspended"
+                                string="Mappings" />
+
+                        <button name="action_get_rules"
+                                type="object"
+                                states="active,suspended"
+                                string="Model Rules" />
+
+                        <field name="state" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <h1>
+                            <label string="Remote Server"/>
+                            <field name="name" />
+                        </h1>
+                        <group name="general">
+                            <group>
+                                <group>
+                                    <field name="url"/>
+                                    <field name="remote_dbname"/>
+                                    <field name="login"/>
+                                    <field name="password" password="True"/>
+                                </group>
+                                <group name="master_type">
+                                    <field name="master_type"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="last_synched_on"/>
+                                <field name="local_changes_since"/>
+                                <group name="synch_info" colspan="2">
+                                    <field name="synch_job" invisible="True"/>
+                                    <field name="synch_state"/>
+                                    <field name="synch_current_status"/>
+                                    <field name="synch_completion_rate" widget="progressbar"/>
+                                    <field name="synch_on"/>
+                                    <field name="synch_ended_on"/>
+                                    <field name="synch_error"/>
+                                </group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Objects FROM Master">
+                                <field name="master_objects" nolabel="True" colspan="4" >
+                                    <tree string="Master objects" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="model"/>
+                                        <field name="selection"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Objects to UPLOAD">
+                                <field name="local_objects" nolabel="True" colspan="4">
+                                    <tree string="Local objects" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="model"/>
+                                        <field name="selection"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="dbsynch_remote_server_action" model="ir.actions.act_window">
+            <field name="name">Remote Servers</field>
+            <field name="res_model">dbsynch.remote_server</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="dbsynch_remote_server_menu"
+            action="dbsynch_remote_server_action"
+            parent="dbsynch_remote_submenu" 
+            sequence="10"/>
+
+        <record model="ir.ui.view" id="dbsynch_remote_shared_model_tree">
+            <field name="name">NUMA DBSynch Remote Model Rules tree</field>
+            <field name="model">dbsynch.remote_shared_model</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Remote Models">
+                    <field name="remote_server"/>
+                    <field name="model"/>
+                    <field name="no_upload"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dbsynch_remote_model_form">
+            <field name="name">NUMA DBSynch Remote Model Rules form</field>
+            <field name="model">dbsynch.remote_shared_model</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Remote Model" >
+                    <group name="main_info">
+                        <field name="remote_server"/>
+                        <field name="model" options="{'no_create': True}"/>
+                        <field name="no_upload"/>
+                        <newline />
+                        <field name="shared_fields" mode="tree">
+                            <tree string="Fields" editable="bottom" >
+                                <field name="field" options="{'no_create': True}" 
+                                       domain="[('model_id','=',parent.model)]"/>
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dbsynch_remote_mapping_search">
+            <field name="name">NUMA DBSynch Mappings search</field>
+            <field name="model">dbsynch.remote_shared_model</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Remote Servers Mappings">
+                    <field name="remote_server"/>
+                    <field name="model"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Master server" context="{'group_by': 'remote_server'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="dbsynch_remote_model_action" model="ir.actions.act_window">
+            <field name="name">Remote Model Rules</field>
+            <field name="res_model">dbsynch.remote_shared_model</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="dbsynch_remote_model_menu"
+            action="dbsynch_remote_model_action"
+            parent="dbsynch_remote_submenu" 
+            sequence="20"/>
+
+    </data>
+</openerp>

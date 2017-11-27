@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-access_service_order_general,Service Order general,model_service_order,,1,1,1,1
-access_service_order_line_general,Service Order Line general,model_service_order_line,,1,1,1,1
-access_service_class_general,Service Class  general,model_service_class,,1,1,1,1

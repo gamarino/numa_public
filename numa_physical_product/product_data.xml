@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!--
+        Property
+        -->
+        <record forcecreate="True" id="decimal_stock_length" model="decimal.precision">
+            <field name="name">Stock Length</field>
+            <field name="digits">3</field>
+        </record>
+
+        <record forcecreate="True" id="decimal_stock_volume" model="decimal.precision">
+            <field name="name">Stock Volume</field>
+            <field name="digits">3</field>
+        </record>
+
+        <record forcecreate="True" id="decimal_stock_surface" model="decimal.precision">
+            <field name="name">Stock Surface</field>
+            <field name="digits">3</field>
+        </record>
+
+    </data>
+</openerp>

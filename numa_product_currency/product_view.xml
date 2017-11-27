@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+    
+        <!-- Products template Form View -->
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="mode">extension</field>
+        <field name="inherit_id" ref="stock_account.view_template_property_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="list_price" position="replace" >
+                    <field name="list_price" invisible="True" />
+                    <label for="list_price" />
+                    <div name="list_price_div" groups="base.group_user">
+                        <field name="list_price"
+                               class="oe_inline"/>
+                        <label string="  " />
+                        <field name="list_price_currency" />
+                    </div>
+                </field>
+                <field name="standard_price" position="replace" >
+                    <div name="standard_price_div" groups="base.group_user">
+                        <field name="standard_price"
+                               attrs="{'readonly':['&amp;', ('valuation','=','real_time'), ('cost_method', 'in', ['standard', 'average'])]}"
+                               class="oe_inline"/>
+                        <label string="  " />
+                        <field name="cost_currency" />
+                    </div>
+                </field>
+            </data>
+        </field>
+    </record>
+
+    <record id="product_variant_easy_edit_view" model="ir.ui.view">
+        <field name="name">product.product.view.form.easy</field>
+        <field name="model">product.product</field>
+        <field name="mode">extension</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="lst_price" position="replace" >
+                    <label for="lst_price" />
+                    <div name="lst_price_div" groups="base.group_user">
+                        <field name="lst_price"
+                               class="oe_inline"/>
+                        <label string="  " />
+                        <field name="list_price_currency" />
+                    </div>
+                </field>
+                <field name="standard_price" position="replace" >
+                    <label for="standard_price" />
+                    <div name="standard_price_div" groups="base.group_user">
+                        <field name="standard_price"
+                               attrs="{'readonly':['&amp;', ('valuation','=','real_time'), ('cost_method', 'in', ['standard', 'average'])]}"
+                               class="oe_inline"/>
+                        <label string="  " />
+                        <field name="cost_currency" />
+                    </div>
+                </field>
+            </data>
+        </field>
+    </record>
+
+    </data>
+</openerp>

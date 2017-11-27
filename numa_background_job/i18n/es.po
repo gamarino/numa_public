@@ -1,0 +1,226 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* numa_background_job
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-28 20:39+0000\n"
+"PO-Revision-Date: 2017-02-28 20:39+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: numa_background_job
+#: view:res.background_job:numa_background_job.background_job_form
+msgid "Abort"
+msgstr "Abortar"
+
+#. module: numa_background_job
+#: code:addons/numa_background_job/models/background_job.py:147
+#: code:addons/numa_background_job/models/background_job.py:149
+#: view:res.background_job:numa_background_job.background_job_search
+#: selection:res.background_job,state:0
+#, python-format
+msgid "Aborted"
+msgstr "Abortado"
+
+#. module: numa_background_job
+#: view:res.background_job:numa_background_job.background_job_search
+msgid "Aborted jobs"
+msgstr "Tareas abortadas"
+
+#. module: numa_background_job
+#: field:res.background_job,aborted_on:0
+msgid "Aborted on"
+msgstr "Abortado el"
+
+#. module: numa_background_job
+#: view:res.background_job:numa_background_job.background_job_form
+msgid "Background Job"
+msgstr "Tarea en segundo plano"
+
+#. module: numa_background_job
+#: model:ir.ui.menu,name:numa_background_job.background_jobs_submenu
+#: view:res.background_job:numa_background_job.background_job_tree
+msgid "Background Jobs"
+msgstr "Tareas en segundo plano"
+
+#. module: numa_background_job
+#: model:ir.actions.act_window,name:numa_background_job.background_job_action
+#: model:ir.model,name:numa_background_job.model_res_background_job
+#: model:ir.ui.menu,name:numa_background_job.background_job_menu
+msgid "Background job"
+msgstr "Tarea en segundo plano"
+
+#. module: numa_background_job
+#: field:res.background_job_test,job_completion_rate:0
+msgid "Completion rate"
+msgstr "Tasa de ejecución"
+
+#. module: numa_background_job
+#: field:res.background_job,completion_rate:0
+msgid "Completion rate [%]"
+msgstr "Tasa de ejecución [%]"
+
+#. module: numa_background_job
+#: field:res.background_job,create_uid:0
+#: field:res.background_job_test,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: numa_background_job
+#: field:res.background_job,create_date:0
+#: field:res.background_job_test,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: numa_background_job
+#: field:res.background_job,current_status:0
+#: field:res.background_job_test,job_current_status:0
+msgid "Current status"
+msgstr "Estado actual"
+
+#. module: numa_background_job
+#: field:res.background_job,display_name:0
+#: field:res.background_job_test,display_name:0
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: numa_background_job
+#: code:addons/numa_background_job/models/background_job.py:128
+#: view:res.background_job:numa_background_job.background_job_search
+#: selection:res.background_job,state:0
+#, python-format
+msgid "Ended"
+msgstr "Terminada"
+
+#. module: numa_background_job
+#: view:res.background_job:numa_background_job.background_job_search
+msgid "Ended jobs"
+msgstr "Tareas terminadas"
+
+#. module: numa_background_job
+#: field:res.background_job,ended_on:0
+msgid "Ended on"
+msgstr "Finalizada el"
+
+#. module: numa_background_job
+#: field:res.background_job_test,job_error:0
+msgid "Error"
+msgstr "Error"
+
+#. module: numa_background_job
+#: field:res.background_job,error:0
+msgid "Error msg"
+msgstr "Mensaje de error"
+
+#. module: numa_background_job
+#: view:res.background_job:numa_background_job.background_job_search
+msgid "Grouped by..."
+msgstr "Agrupar por..."
+
+#. module: numa_background_job
+#: field:res.background_job,id:0
+#: field:res.background_job_test,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: numa_background_job
+#: view:res.background_job:numa_background_job.background_job_search
+msgid "Initialized"
+msgstr "Inicializada"
+
+#. module: numa_background_job
+#: view:res.background_job:numa_background_job.background_job_search
+msgid "Initialized jobs"
+msgstr "Tareas inicilizadas"
+
+#. module: numa_background_job
+#: field:res.background_job,initialized_on:0
+msgid "Initialized on"
+msgstr "Iniciado el"
+
+#. module: numa_background_job
+#: selection:res.background_job,state:0
+msgid "Initializing"
+msgstr "Inicializando"
+
+#. module: numa_background_job
+#: field:res.background_job_test,job:0
+msgid "Job"
+msgstr "Tarea"
+
+#. module: numa_background_job
+#: field:res.background_job,name:0
+msgid "Job name"
+msgstr "Nombre de la tarea"
+
+#. module: numa_background_job
+#: field:res.background_job,__last_update:0
+#: field:res.background_job_test,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: numa_background_job
+#: field:res.background_job,write_uid:0
+#: field:res.background_job_test,write_uid:0
+msgid "Last Updated by"
+msgstr "Ultima modificación por"
+
+#. module: numa_background_job
+#: field:res.background_job,write_date:0
+#: field:res.background_job_test,write_date:0
+msgid "Last Updated on"
+msgstr "Ultima actualización el"
+
+#. module: numa_background_job
+#: field:res.background_job,method:0
+msgid "Method to call"
+msgstr "Método a llamar"
+
+#. module: numa_background_job
+#: view:res.background_job:numa_background_job.background_job_search
+#: field:res.background_job,model:0
+msgid "Model"
+msgstr "Modelo"
+
+#. module: numa_background_job
+#: field:res.background_job,res_id:0
+msgid "Resource ID"
+msgstr "ID de Recurso"
+
+#. module: numa_background_job
+#: view:res.background_job:numa_background_job.background_job_search
+msgid "Search background jobs"
+msgstr "Buscar tareas en segundo plano"
+
+#. module: numa_background_job
+#: code:addons/numa_background_job/models/background_job.py:109
+#: view:res.background_job:numa_background_job.background_job_search
+#: selection:res.background_job,state:0
+#, python-format
+msgid "Started"
+msgstr "Comenzada"
+
+#. module: numa_background_job
+#: view:res.background_job:numa_background_job.background_job_search
+msgid "Started jobs"
+msgstr "Tareas comenzadas"
+
+#. module: numa_background_job
+#: field:res.background_job,started_on:0
+msgid "Started on"
+msgstr "Comenzada el"
+
+#. module: numa_background_job
+#: view:res.background_job:numa_background_job.background_job_search
+#: field:res.background_job,state:0
+#: field:res.background_job_test,job_state:0
+msgid "State"
+msgstr "Estado"
+

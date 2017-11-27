@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_process,CRM Processes general access,model_crm_process,,1,1,1,1
+access_process_stage,CRM Processes/Stage general access,model_crm_process_stage,,1,1,1,1
+access_lead_log,CRM Lead Log general access,model_crm_lead_log,,1,1,1,1

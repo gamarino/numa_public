@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">Partner with supplier's pricelist</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <data>
+                    <group name="purchase" position="inside">
+                        <field name="supplier_pricelist_id"
+                               domain="[('for_purchase','=',True)]"
+                               default="{'default_for_purchase': True, 'default_for_sale': False}"/>
+                    </group>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

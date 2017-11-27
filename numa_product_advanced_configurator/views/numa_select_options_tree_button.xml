@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<odoo>
+	<template id="assets_backend" name="numa_select_options_tree_button" inherit_id="web.assets_backend">
+		<xpath expr="." position="inside">
+			<script type="text/javascript" src="/numa_product_advanced_configurator/static/src/js/numa_select_options_tree_button.js"></script>
+		</xpath>
+	</template>
+</odoo>

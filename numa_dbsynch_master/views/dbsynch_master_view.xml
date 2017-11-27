@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <menuitem name="DBSynch Master" 
+                  parent="base.menu_administration" 
+                  id="dbsynch_master_submenu"/>
+
+        <record model="ir.ui.view" id="dbsynch_master_model_tree">
+            <field name="name">NUMA DBSynch Master Model tree</field>
+            <field name="model">dbsynch.shared_model</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Master Models">
+                    <field name="model"/>
+                    <field name="no_upload"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dbsynch_master_model_form">
+            <field name="name">NUMA DBSynch Master Model form</field>
+            <field name="model">dbsynch.shared_model</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Master Model" >
+                    <group name="main_info">
+                        <field name="model" options="{'no_create': True}"/>
+                        <field name="no_upload"/>
+                        <newline />
+                        <field name="shared_fields" mode="tree">
+                            <tree string="Fields" editable="bottom" >
+                                <field name="field" options="{'no_create': True}" 
+                                       domain="[('model_id','=',parent.model)]"/>
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="dbsynch_master_model_action" model="ir.actions.act_window">
+            <field name="name">Synchronized Models</field>
+            <field name="res_model">dbsynch.shared_model</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="dbsynch_master_model_menu"
+            action="dbsynch_master_model_action"
+            parent="dbsynch_master_submenu" 
+            sequence="10"/>
+
+    </data>
+</openerp>

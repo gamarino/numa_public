@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="background job assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/css" href="/numa_background_job/static/src/css/bj_spinner.css"/>
+                <script type="text/javascript" src="/numa_background_job/static/src/js/bj_spinner_widget.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

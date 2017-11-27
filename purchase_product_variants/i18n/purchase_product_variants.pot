@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 05:57+0000\n"
-"PO-Revision-Date: 2015-05-19 05:57+0000\n"
+"POT-Creation-Date: 2017-04-06 01:56+0000\n"
+"PO-Revision-Date: 2017-04-06 01:56+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,81 +16,127 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: purchase_product_variants
-#: field:purchase.order.line.attribute,attribute:0
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_attribute_attribute
 msgid "Attribute"
 msgstr ""
 
 #. module: purchase_product_variants
-#: field:purchase.order.line.attribute,create_uid:0
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_attribute_create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: purchase_product_variants
-#: field:purchase.order.line.attribute,create_date:0
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_attribute_create_date
 msgid "Created on"
 msgstr ""
 
 #. module: purchase_product_variants
-#: view:purchase.order:purchase_product_variants.purchase_order_extended_form_view
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_attribute_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: purchase_product_variants
+#: model:ir.ui.view,arch_db:purchase_product_variants.purchase_order_extended_form_view
 msgid "Duplicate"
 msgstr ""
 
 #. module: purchase_product_variants
-#: view:purchase.order:purchase_product_variants.purchase_order_extended_form_view
+#: model:ir.ui.view,arch_db:purchase_product_variants.purchase_order_extended_form_view
 msgid "Duplicate line"
 msgstr ""
 
 #. module: purchase_product_variants
-#: field:purchase.order.line.attribute,id:0
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_attribute_id
 msgid "ID"
 msgstr ""
 
 #. module: purchase_product_variants
-#: field:purchase.order.line.attribute,write_uid:0
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_attribute___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: purchase_product_variants
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_attribute_write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: purchase_product_variants
-#: field:purchase.order.line.attribute,write_date:0
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_attribute_write_date
 msgid "Last Updated on"
 msgstr ""
 
 #. module: purchase_product_variants
-#: field:purchase.order.line.attribute,purchase_line:0
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_attribute_purchase_line
 msgid "Order line"
 msgstr ""
 
 #. module: purchase_product_variants
-#: field:purchase.order.line,product_template:0
-msgid "Product Template"
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_attribute_possible_values
+msgid "Possible values"
 msgstr ""
 
 #. module: purchase_product_variants
-#: field:purchase.order.line,product_attributes:0
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_product_template
+msgid "Product"
+msgstr ""
+
+#. module: purchase_product_variants
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_product_attributes
 msgid "Product attributes"
 msgstr ""
 
 #. module: purchase_product_variants
-#: code:addons/purchase_product_variants/models/purchase_order.py:136
+#: model:ir.model,name:purchase_product_variants.model_purchase_order
+msgid "Purchase Order"
+msgstr ""
+
+#. module: purchase_product_variants
+#: model:ir.model,name:purchase_product_variants.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr ""
+
+#. module: purchase_product_variants
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_order_state
+msgid "Status"
+msgstr ""
+
+#. module: purchase_product_variants
+#: code:addons/purchase_product_variants/models/purchase_order.py:145
 #, python-format
 msgid "The selected supplier has a minimal quantity set to %s %s, you should not purchase less."
 msgstr ""
 
 #. module: purchase_product_variants
-#: code:addons/purchase_product_variants/models/purchase_order.py:121
+#: code:addons/purchase_product_variants/models/purchase_order.py:130
 #, python-format
 msgid "The selected supplier only sells this product by %s"
 msgstr ""
 
 #. module: purchase_product_variants
-#: field:purchase.order.line.attribute,value:0
+#: model:ir.model.fields,field_description:purchase_product_variants.field_purchase_order_line_attribute_value
 msgid "Value"
 msgstr ""
 
 #. module: purchase_product_variants
-#: code:addons/purchase_product_variants/models/purchase_order.py:120
-#: code:addons/purchase_product_variants/models/purchase_order.py:135
+#: model:ir.ui.view,arch_db:purchase_product_variants.purchase_order_extended_form_view
+msgid "Variant"
+msgstr ""
+
+#. module: purchase_product_variants
+#: code:addons/purchase_product_variants/models/purchase_order.py:129
+#: code:addons/purchase_product_variants/models/purchase_order.py:144
 #, python-format
 msgid "Warning!"
+msgstr ""
+
+#. module: purchase_product_variants
+#: code:addons/purchase_product_variants/models/purchase_order.py:201
+#, python-format
+msgid "You can not confirm before configuring all attribute values."
+msgstr ""
+
+#. module: purchase_product_variants
+#: model:ir.model,name:purchase_product_variants.model_purchase_order_line_attribute
+msgid "purchase.order.line.attribute"
 msgstr ""
 

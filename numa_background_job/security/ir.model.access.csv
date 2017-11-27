@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_background_jobs_general,"Background Jobs, general access",model_res_background_job,,1,1,1,1

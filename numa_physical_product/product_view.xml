@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+    
+        <!-- Products template Form View -->
+        <record model="ir.ui.view" id="product_template_form_view">
+            <field name="name">Product template physical</field>
+            <field name="model">product.template</field>
+            <field name="mode">extension</field>
+            <field name="inherit_id" ref="stock.view_template_property_form" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//group[@name='group_lots_and_weight']" position="replace" >
+                        <group name="group_lots_and_weight" colspan="2">
+                            <group name="physical" string="Physical characteristics" attrs="{'invisible':[('type', 'not in', ['product', 'consu'])]}">
+                                <field name="weight_kind" />
+                                <field name="weight_factor"
+                                       attrs="{'invisible':[('weight_kind','=','normal')]}"/>
+                                <field name="width" />
+                                <field name="length" />
+                                <field name="height" />
+                                <field name="surface" />
+                                <label for="weight" invisible="True" />
+                                <div name="weight"/>
+                                <field name="weight"/>
+                                <label for="volume" invisible="True" />
+                                <div name="volume"/>
+                                <field name="volume"/>
+                            </group>
+                            <field name="tracking" widget="radio" attrs="{'invisible':[('type', 'in', ['service', 'digital'])]}" groups="stock.group_production_lot"/>
+                        </group>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <!-- Products variat Form View -->
+        <record model="ir.ui.view" id="product_normal_form_view">
+            <field name="name">Product variant physical</field>
+            <field name="model">product.product</field>
+            <field name="mode">extension</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='weight_kind']" position="before" >
+                        <field name="variant_width" invisible="True"/>
+                        <field name="variant_length" invisible="True" />
+                        <field name="variant_height" invisible="True" />
+                        <field name="variant_surface" invisible="True" />
+                        <field name="variant_volume" invisible="True" />
+                        <field name="variant_weight" invisible="True" />
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="product_pricelist_view" model="ir.ui.view">
+            <field name="name">Pricelist with show items button</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view" />
+            <field name="arch" type="xml">
+                <data>
+                    <field name="item_ids" position="before">
+                        <button name="action_show_items"
+                                type="object"
+                                string="Show items" />
+                    </field>
+                </data>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

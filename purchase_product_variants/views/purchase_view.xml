@@ -21,22 +21,25 @@
                             state="draft"
                             string="Duplicate"
                             type="object"
-                            icon="STOCK_COPY"
+                            icon="fa-clone"
                             attrs="{'invisible': [('order_state', 'not in', ['draft', 'sent'])]}"
                             help="Duplicate line"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//form//field[@name='product_id']"
+                       position="before">
+                    <field name="order_state" invisible="1"/>
+                    <field name="product_template" />
+                </xpath>
+                <xpath expr="//field[@name='order_line']//form//field[@name='product_id']"
+                       position="attributes">
+                    <attribute name="nolabel" >1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//form//field[@name='product_id']"
+                       position="before">
+                    <label string="Variant"/>
                 </xpath>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="purchase_order_line_extended_tree_view">
-            <field name="name">purchase.order.line.extended.tree</field>
-            <field name="model">purchase.order.line</field>
-            <field name="inherit_id" ref="purchase.purchase_order_line_tree" />
-            <field name="arch" type="xml">
-                <field name="product_id" position="before">
-                    <field name="product_template" />
-                </field>
-            </field>
-        </record>
     </data>
 </openerp>

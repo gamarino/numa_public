@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dbsynch_remote_shared_model,"DBSynch Remote Shared Model, general access",model_dbsynch_remote_shared_model,,1,1,1,1
+access_dbsynch_remote_shared_field,"DBSynch Remote Shared Field, general access",model_dbsynch_remote_shared_field,,1,1,1,1
+access_dbsynch_remote_mapping,DBSynch Remote Mapping,model_dbsynch_remote_mapping,,1,1,1,1
+access_dbsynch_remote_server,DBSynch Remote Server,model_dbsynch_remote_server,,1,1,1,1
+access_dbsynch_local_objects,DBSynch Remote Local Objects,model_dbsynch_local_object,,1,1,1,1
+access_dbsynch_remote_objects,DBSynch Remote Remote Objects,model_dbsynch_remote_object,,1,1,1,1

@@ -1,0 +1,346 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* numa_crm_process
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-13 05:34+0000\n"
+"PO-Revision-Date: 2017-08-13 05:34+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: numa_crm_process
+#: model:ir.model,name:numa_crm_process.model_crm_opportunity_report
+msgid "CRM Opportunity Analysis"
+msgstr "Análisis de oportunidades CRM"
+
+#. module: numa_crm_process
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_process_form
+msgid "CRM Process"
+msgstr "Proceso CRM"
+
+#. module: numa_crm_process
+#: model:ir.actions.act_window,name:numa_crm_process.crm_process_action
+#: model:ir.ui.menu,name:numa_crm_process.crm_process_menu
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_process_stage_tree
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_process_tree
+msgid "CRM Processes"
+msgstr "Procesos CRMS"
+
+#. module: numa_crm_process
+#: model:ir.ui.menu,name:numa_crm_process.crm_process_stage_menu
+msgid "CRM Processes/Stage"
+msgstr "Procesos/Etapas CRM"
+
+#. module: numa_crm_process
+#: model:ir.actions.act_window,name:numa_crm_process.crm_process_stage_action
+msgid "CRM Processes/Stages"
+msgstr "Procesos/Etapas CRM"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_changed_by
+msgid "Changed by"
+msgstr "Cambiado por"
+
+#. module: numa_crm_process
+#: model:ir.ui.view,arch_db:numa_crm_process.show_funnel_form
+msgid "Compute funnel"
+msgstr "Calcular funnel"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stage_conditions
+msgid "Conditions"
+msgstr "Condiciones"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_create_uid
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_create_uid
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stage_create_uid
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_create_date
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_create_date
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stage_create_date
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_current_log
+msgid "Current log entry"
+msgstr "Entrada de log actual"
+
+#. module: numa_crm_process
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_process_form
+msgid "Describe the process..."
+msgstr "Describa el proceso..."
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_display_name
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_display_name
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stage_display_name
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel_display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel_export_data
+msgid "File data"
+msgstr "Archivo"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel_export_name
+msgid "File name"
+msgstr "Nombre del archivo"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel_from_date
+msgid "From date"
+msgstr "Desde el "
+
+#. module: numa_crm_process
+#: selection:crm.show_funnel,state:0
+msgid "Generated"
+msgstr "Generado"
+
+#. module: numa_crm_process
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_process_stage_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: numa_crm_process
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_case_form_view_oppor
+msgid "History"
+msgstr "Historial"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_history
+msgid "History Log"
+msgstr "Registro historia"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_id
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_id
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stage_id
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel_id
+msgid "ID"
+msgstr "ID"
+
+#. module: numa_crm_process
+#: selection:crm.show_funnel,state:0
+msgid "Initial"
+msgstr "Inicial"
+
+#. module: numa_crm_process
+#: code:addons/numa_crm_process/models/crm_process.py:36
+#, python-format
+msgid "Invalid stage for the lead's process %s!"
+msgstr "Etapa inválida para el proceso de la oportunidad %s!"
+
+#. module: numa_crm_process
+#: code:addons/numa_crm_process/models/crm_process.py:82
+#, python-format
+msgid "Invalid stage for the lead's process on lead %s!"
+msgstr "Etapa inválida para el proceso de la oportunidad, en %s!"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log___last_update
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process___last_update
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stage___last_update
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_write_uid
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stage_write_uid
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_write_uid
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización realizada por"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_write_date
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stage_write_date
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_write_date
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_lead
+msgid "Lead"
+msgstr "Iniciativa"
+
+#. module: numa_crm_process
+#: model:ir.model,name:numa_crm_process.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Iniciativa/Oportunidad"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: numa_crm_process
+#: code:addons/numa_crm_process/models/crm_process.py:33
+#: code:addons/numa_crm_process/models/crm_process.py:71
+#, python-format
+msgid "No first stage found for process %s!"
+msgstr "No se ha encontrado la primer etapa para el proceso %s!"
+
+#. module: numa_crm_process
+#: model:ir.actions.act_window,help:numa_crm_process.crm_process_action
+msgid "Once qualified, the lead can be converted into a business\n"
+"                opportunity and/or a new customer in your address book."
+msgstr "Una vez calificada, la oportunidad puede ser convertida en una\n"
+"                oportunidad de negocio o un nuevo cliente."
+
+#. module: numa_crm_process
+#: model:ir.ui.view,arch_db:numa_crm_process.show_funnel_form
+msgid "Output data"
+msgstr "Datos de salida"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_opportunity_report_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stage_process
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_opportunity_report_view_search
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_process_form
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_process_stage_search
+#: model:ir.ui.view,arch_db:numa_crm_process.view_crm_case_opportunities_filter
+msgid "Process"
+msgstr "Proceso"
+
+#. module: numa_crm_process
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_case_form_view_oppor
+msgid "Process..."
+msgstr "Proceso..."
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_stage_processes
+msgid "Processes"
+msgstr "Procesos"
+
+#. module: numa_crm_process
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_process_stage_search
+msgid "Search"
+msgstr "Búsqueda"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stage_sequence
+msgid "Secuencia"
+msgstr "Secuencia"
+
+#. module: numa_crm_process
+#: model:ir.ui.view,arch_db:numa_crm_process.show_funnel_form
+msgid "Selection"
+msgstr "Selección"
+
+#. module: numa_crm_process
+#: model:ir.ui.view,arch_db:numa_crm_process.show_funnel_form
+msgid "Show Opportunity funnel"
+msgstr "Calcular el funnel de oportunidades"
+
+#. module: numa_crm_process
+#: code:addons/numa_crm_process/models/crm_process.py:246
+#: model:ir.actions.act_window,name:numa_crm_process.show_funnel_from_leads
+#, python-format
+msgid "Show funnel"
+msgstr "Mostrar el funnel"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_stage
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stage_stage
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_process_stage_search
+msgid "Stage"
+msgstr "Etapa"
+
+#. module: numa_crm_process
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_case_form_view_oppor
+msgid "Stage changes"
+msgstr "Cambios de etapa"
+
+#. module: numa_crm_process
+#: model:ir.model,name:numa_crm_process.model_crm_stage
+msgid "Stage of case"
+msgstr "Etapa del caso"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_process_stages
+#: model:ir.ui.view,arch_db:numa_crm_process.crm_process_form
+msgid "Stages"
+msgstr "Etapas"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel_state
+msgid "State"
+msgstr "Provincia"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_show_funnel_til_date
+msgid "Til date"
+msgstr "Hasta"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_til
+msgid "Till"
+msgstr "Hasta"
+
+#. module: numa_crm_process
+#: model:ir.actions.act_window,help:numa_crm_process.crm_process_action
+msgid "Use Processes to design a stage path for your leads"
+msgstr "Use procesos para definir un camino para sus oportunidades"
+
+#. module: numa_crm_process
+#: model:ir.model.fields,help:numa_crm_process.field_crm_process_stage_sequence
+msgid "Used to order stages. Lower is better."
+msgstr "Utilizado para ordenar etapas. Bajo es más prioritario."
+
+#. module: numa_crm_process
+#: model:ir.model.fields,field_description:numa_crm_process.field_crm_lead_log_when
+msgid "When"
+msgstr "Cuando"
+
+#. module: numa_crm_process
+#: code:addons/numa_crm_process/models/crm_process.py:78
+#, python-format
+msgid "You should define the process before updating the stage on lead %s!"
+msgstr "Se debe definir el proceso para actualizar la etapa en la oportunidad %s!"
+
+#. module: numa_crm_process
+#: code:addons/numa_crm_process/models/crm_process.py:26
+#, python-format
+msgid "You should define the process on creation of the lead!"
+msgstr "Se debe definir el proceso para crear la oportunidad!"
+
+#. module: numa_crm_process
+#: model:ir.model,name:numa_crm_process.model_crm_lead_log
+msgid "crm.lead_log"
+msgstr "crm.lead_log"
+
+#. module: numa_crm_process
+#: model:ir.model,name:numa_crm_process.model_crm_process
+msgid "crm.process"
+msgstr "crm.process"
+
+#. module: numa_crm_process
+#: model:ir.model,name:numa_crm_process.model_crm_process_stage
+msgid "crm.process_stage"
+msgstr "crm.process_stage"
+
+#. module: numa_crm_process
+#: model:ir.model,name:numa_crm_process.model_crm_show_funnel
+msgid "crm.show_funnel"
+msgstr "crm.show_funnel"
+
